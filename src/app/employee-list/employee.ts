@@ -6,6 +6,6 @@ export class Employee {
     email: string | null = null;
 
 
-    
+
 
 }

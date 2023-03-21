@@ -13,10 +13,9 @@ import { EmployeeListComponent } from './employee-list/employee-list.component';
     EmployeeListComponent
   ],
   imports: [
-    BrowserModule,   
+    BrowserModule,
     AppRoutingModule,
     HttpClientModule
-    
   ],
   providers: [],
   bootstrap: [AppComponent]
