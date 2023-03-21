@@ -1,0 +1,28 @@
+{
+  "employee": [
+    {
+      "id": 1,
+      "firstName": "f 1",
+      "lastName": "l 1",
+      "email": "e 1"
+    },
+    {
+      "id": 2,
+      "firstName": "f 2",
+      "lastName": "l 2",
+      "email": "e 2"
+    },
+    {
+      "id": 3,
+      "firstName": "f 3",
+      "lastName": "l 3",
+      "email": "e 3"
+    },
+    {
+      "id": 4,
+      "firstName": "f 4",
+      "lastName": "l 4",
+      "email": "e 4"
+    }
+  ]
+}

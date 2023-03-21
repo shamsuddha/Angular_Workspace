@@ -1,0 +1,21 @@
+
+<h1>{{officeName}}</h1>
+
+<button (click)="reload()">reload</button>
+<h2>Employee List</h2>
+<table class="table table-striped">
+  <thead>
+  <tr>
+    <th>First Name</th>
+    <th>Last Name</th>
+    <th>Email</th>
+  </tr>
+  </thead>
+  <tbody>
+  <tr *ngFor="let employeeDto of employeeDtoList">
+    <td>{{ employeeDto.firstName }}</td>
+    <td>{{ employeeDto.lastName }}</td>
+    <td>{{ employeeDto.email }}</td>
+  </tr>
+  </tbody>
+</table>
