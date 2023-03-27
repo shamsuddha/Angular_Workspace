@@ -24,5 +24,51 @@
       "lastName": "l 4",
       "email": "e 4"
     }
+  ],
+  "student": [
+    {
+      "id": 1,
+      "name": "student 1"
+    },
+    {
+      "id": 2,
+      "name": "student 2"
+    },
+    {
+      "id": "3",
+      "name": "student 3"
+    },
+    {
+      "id": "333",
+      "bookName": "sfsdf",
+      "authorName": "sdfsdf",
+      "publisherName": "sdfsdf"
+    }
+  ],
+  "book": [
+    {
+      "id": 1,
+      "bookName": "book 1",
+      "authorName": "author 1",
+      "publisherName": "publisher 1"
+    },
+    {
+      "id": 2,
+      "bookName": "book 2",
+      "authorName": "author 2",
+      "publisherName": "publisher 2"
+    },
+    {
+      "id": 3,
+      "bookName": "book 3",
+      "authorName": "author 3",
+      "publisherName": "publisher 3"
+    },
+    {
+      "id": "22",
+      "bookName": "das",
+      "authorName": "adsadasd",
+      "publisherName": "asdad"
+    }
   ]
 }
