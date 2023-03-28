@@ -24,12 +24,11 @@
   <button type="button" (click)="log()">log</button>
   <button type="button" (click)="markAllTouched()">markAllTouched</button>
   <button type="button" (click)="loadAllData()">loadAllData</button>
-
+  <button type="button" (click)="update(studentDtoFg.value)">Update Data</button>
 </form>
 
 <hr />
 {{studentDtoList | json}}
-
 
 <table class="table table-striped">
   <thead>
@@ -40,13 +39,15 @@
     </tr>
   </thead>
   <tbody>
-    <tr *ngFor="let studentDto of studentDtoList">
-      <td>{{studentDto.id}}</td>
-      <td>{{studentDto.name}}</td>
-  
-      <td><button type="button" class="" (click)="update(studentDto)">Edit</button>
-      <button type="button" class="" (click)="delete(studentDto)">Delete</button></td>
+    <tr *ngFor="let student of studentDtoList">
+      <td>{{student.id}}</td>
+      <td>{{student.name}}</td>
+      <td>
+        <button (click)="edit(student)">Edit</button>
+        <button (click)="delete(student)">Delete</button>
+      </td>
     </tr>
-    
+
+
   </tbody>
 </table>
