@@ -1,3 +1,4 @@
+import { TeacherComp } from './teacher/TeacherComp';
 import { BookComp } from './book/BookComp';
 
 import { NgModule, ɵflushModuleScopingQueueAsMuchAsPossible } from '@angular/core';
@@ -18,7 +19,8 @@ import { NgSelectModule } from '@ng-select/ng-select';
     StudentComp,
     ProfileEditorComponent,
     BookComp,
-    PersonComp
+    PersonComp,
+    TeacherComp
     
   ],
   imports: [

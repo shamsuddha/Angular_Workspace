@@ -49,24 +49,18 @@ export class StudentComp {
   }
 
   delete(v: any) {
-
     console.log(v);
     this.studentDtoService.deleteStudent(v);
-
   }
 
   edit(v: any) {
-
     console.log(v);
-
     this.studentDtoFg.controls.id.setValue(v.id);
     this.studentDtoFg.controls.name.setValue(v.name);
-  
   }
 
-  update(v: any){
+  update(v: any) {
     this.studentDtoService.updateStudent(v);
-
   }
 
 

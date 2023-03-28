@@ -1,0 +1,66 @@
+<h4>Teacher comp</h4>
+
+{{teacherDtoFg.value | json}}
+<hr />
+
+{{teacherDtoFg.controls['name'].errors | json}}
+<hr />
+
+<form [formGroup]="teacherDtoFg">
+  <div>
+    <ng-select [items]="cars" 
+               bindLabel="name" 
+               bindValue="id" 
+               formControlName="car"
+             >
+    </ng-select></div>
+
+
+
+  
+  <label for="id">id: </label>
+  <input type="text" formControlName="id">
+  <label for="firstName"> name: </label>`
+  <input type="text" formControlName="name">
+  <div *ngIf="teacherDtoFg.controls['name'].touched 
+&& teacherDtoFg.controls['name'].errors?.['required']" class="alert alert-danger">
+    Name is required
+  </div>
+  <div *ngIf="teacherDtoFg.controls['name'].touched 
+&& teacherDtoFg.controls['name'].errors?.['maxlength']" class="alert alert-danger">
+    Max Length 3
+  </div>
+
+  <button type="button" (click)="save()">Submit</button>
+  <button type="button" (click)="reset()">Reset</button>
+  <button type="button" (click)="loadData()">loadData</button>
+  <button type="button" (click)="log()">log</button>
+  <button type="button" (click)="markAllTouched()">markAllTouched</button>
+  <button type="button" (click)="loadAllData()">loadAllData</button>
+  <button type="button" (click)="update(teacherDtoFg.value)">Update Data</button>
+</form>
+
+<hr />
+{{teacherDtoList | json}}
+
+<table class="table table-striped">
+  <thead>
+    <tr>
+      <th>id</th>
+      <th>name</th>
+      <th>action</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr *ngFor="let teacher of teacherDtoList">
+      <td>{{teacher.id}}</td>
+      <td>{{teacher.name}}</td>
+      <td>
+        <button (click)="edit(teacher)">Edit</button>
+        <button (click)="delete(teacher)">Delete</button>
+      </td>
+    </tr>
+
+
+  </tbody>
+</table>
