@@ -30,7 +30,7 @@ export class StudentDtoService {
 
   updateStudent(v: any) {
     console.log(v);
-    this.httpClient.patch('http://localhost:3000/student/'+v.id, v).subscribe();
+    this.httpClient.patch('http://localhost:3000/student/'+v.id, v  ).subscribe();
     console.log("successfully Updated...");
   }
 }
