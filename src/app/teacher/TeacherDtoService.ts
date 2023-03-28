@@ -16,7 +16,7 @@ export class TeacherDtoService {
   }
 
   saveTeacher(teacherDto: TeacherDto): Observable<TeacherDto> {
-    return this.httpClient.post<TeacherDto>("http://localhost:3000/teacher", TeacherDto);
+    return this.httpClient.post<TeacherDto>("http://localhost:3000/teacher", teacherDto);
   }
 
 
@@ -24,7 +24,7 @@ export class TeacherDtoService {
 
     this.httpClient.delete('http://localhost:3000/teacher/'+v.id).subscribe();
     console.log("successfully Deleted...");
-    
+
   }
 
 

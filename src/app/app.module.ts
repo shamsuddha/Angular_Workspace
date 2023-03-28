@@ -10,7 +10,7 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { ProfileEditorComponent } from './profile-editor/profile-editor.component';
 import { StudentComp } from './student/StudentComp';
 import { PersonComp } from './person/PersonComp';
-import { NgSelectModule } from '@ng-select/ng-select';
+import {NgSelectModule} from "@ng-select/ng-select";
 
 
 @NgModule({
@@ -21,7 +21,7 @@ import { NgSelectModule } from '@ng-select/ng-select';
     BookComp,
     PersonComp,
     TeacherComp
-    
+
   ],
   imports: [
     BrowserModule,
