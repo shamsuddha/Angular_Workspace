@@ -48,4 +48,12 @@ export class StudentComp {
     })
   }
 
+  delete(v: any) {
+    console.log("deleting", v);
+  }
+
+  update(v: any) {
+    console.log("updating", v);
+  }
+
 };

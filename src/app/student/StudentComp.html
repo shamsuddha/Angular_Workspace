@@ -29,3 +29,24 @@
 
 <hr />
 {{studentDtoList | json}}
+
+
+<table class="table table-striped">
+  <thead>
+    <tr>
+      <th>id</th>
+      <th>name</th>
+      <th>action</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr *ngFor="let studentDto of studentDtoList">
+      <td>{{studentDto.id}}</td>
+      <td>{{studentDto.name}}</td>
+  
+      <td><button type="button" class="" (click)="update(studentDto)">Edit</button>
+      <button type="button" class="" (click)="delete(studentDto)">Delete</button></td>
+    </tr>
+    
+  </tbody>
+</table>

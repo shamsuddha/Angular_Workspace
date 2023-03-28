@@ -7,4 +7,5 @@ export class StudentDto {
     Object.assign(this,o);
     }
 
+  
 }

@@ -27,22 +27,12 @@
   ],
   "student": [
     {
-      "id": 1,
-      "name": "student 1"
+      "id": "1",
+      "name": "asd"
     },
     {
-      "id": 2,
-      "name": "student 2"
-    },
-    {
-      "id": "3",
-      "name": "student 3"
-    },
-    {
-      "id": "333",
-      "bookName": "sfsdf",
-      "authorName": "sdfsdf",
-      "publisherName": "sdfsdf"
+      "id": "2",
+      "name": "ase"
     }
   ],
   "book": [
