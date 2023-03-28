@@ -19,4 +19,21 @@ export class StudentDtoService {
     return this.httpClient.post<StudentDto>("http://localhost:3000/student", studentDto);
   }
 
+
+  deleteStudent(v:any){
+
+    this.httpClient.delete('http://localhost:3000/student/'+v.id).subscribe();
+    console.log("successfully Deleted...");
+    
+  }
+
+
+  updateStudent(v: any) {
+    console.log(v);
+    this.httpClient.patch('http://localhost:3000/student/'+v.id, v).subscribe();
+    console.log("successfully Updated...");
+  }
 }
+
+
+
