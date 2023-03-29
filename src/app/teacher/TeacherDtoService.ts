@@ -19,20 +19,16 @@ export class TeacherDtoService {
     return this.httpClient.post<TeacherDto>("http://localhost:3000/teacher", teacherDto);
   }
 
-
   deleteTeacher(v:any){
-
     this.httpClient.delete('http://localhost:3000/teacher/'+v.id).subscribe();
     console.log("successfully Deleted...");
-
   }
 
-
-  updateTeacher(v: any) {
-    console.log(v);
-    this.httpClient.patch('http://localhost:3000/teacher/'+v.id, v  ).subscribe();
-    console.log("successfully Updated...");
+  updateTeacher(teacherDto: TeacherDto): Observable<TeacherDto> {    
+    return this.httpClient.put<TeacherDto>('http://localhost:3000/teacher/'
+    +teacherDto.id, teacherDto);
   }
+  
 }
 
 

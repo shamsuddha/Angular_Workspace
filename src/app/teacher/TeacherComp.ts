@@ -1,7 +1,7 @@
-import {Component} from '@angular/core';
-import {FormControl, FormGroup, Validators} from '@angular/forms';
-import {TeacherDto} from './TeacherDto';
-import {TeacherDtoService} from './TeacherDtoService';
+import { Component } from '@angular/core';
+import { FormControl, FormGroup, Validators } from '@angular/forms';
+import { TeacherDto } from './TeacherDto';
+import { TeacherDtoService } from './TeacherDtoService';
 
 @Component({
   selector: 'TeacherComp',
@@ -10,11 +10,12 @@ import {TeacherDtoService} from './TeacherDtoService';
 })
 export class TeacherComp {
 
+
   carList = [
-    {id: 1, name: 'Volvo'},
-    {id: 2, name: 'Saab'},
-    {id: 3, name: 'Opel'},
-    {id: 4, name: 'Audi'},
+    { id: 1, name: 'Volvo' },
+    { id: 2, name: 'Saab' },
+    { id: 3, name: 'Opel' },
+    { id: 4, name: 'Audi' },
   ];
 
   constructor(private teacherDtoService: TeacherDtoService) {
@@ -23,7 +24,7 @@ export class TeacherComp {
   teacherDtoFg = new FormGroup({
     id: new FormControl<number | null>(null),
     name: new FormControl<string | null>(null, [Validators.required,
-      Validators.maxLength(30), Validators.minLength(3)]),
+    Validators.maxLength(30), Validators.minLength(3)]),
     carId: new FormControl<number | null>(null),
   });
 
@@ -38,7 +39,7 @@ export class TeacherComp {
   }
 
   loadData() {
-    const teacherDto: TeacherDto = new TeacherDto({id: 5, name: "Teacher 5"});
+    const teacherDto: TeacherDto = new TeacherDto({ id: 5, name: "Teacher 5" });
     this.teacherDtoFg.patchValue(teacherDto);
   }
 
@@ -66,13 +67,21 @@ export class TeacherComp {
     this.search();
   }
 
-  edit(teacherDto: TeacherDto) {
+  onUpdateClick(teacherDto: TeacherDto) {
     this.teacherDtoFg.patchValue({
       carId: teacherDto.carId,
       id: teacherDto.id,
       name: teacherDto.name
     });
-    this.search();
+    //this.search();
+  }
+
+  update() {
+    this.teacherDtoService.updateTeacher(new TeacherDto(this.teacherDtoFg.value))
+    .subscribe(e=> {
+      console.log(e);
+      this.search();
+    })
   }
 
 }

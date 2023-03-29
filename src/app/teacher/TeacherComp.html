@@ -1,65 +1,66 @@
-<h4>Teacher comp 2</h4>
-
-{{teacherDtoFg.value | json}}
-<hr/>
-{{teacherDtoFg.controls['name'].errors | json}}
-<hr/>
-
-<form [formGroup]="teacherDtoFg">
-
+<div class="container">
   <div class="row">
-    <div class="col-md-4">
-      <ng-select [items]="carList"
-                 bindLabel="name"
-                 bindValue="id"
-                 formControlName="carId">
-      </ng-select>
+    <div class="col-6">
+      <h4>Teacher comp 2</h4>
+      {{teacherDtoFg.value | json}}
+      <hr />
+      {{teacherDtoFg.controls['name'].errors | json}}
+      <hr />
+      <form [formGroup]="teacherDtoFg" class="form-horizontal">
+        <div class="form-group">
+          <label class="control-label col-sm-2" for="id">Select Car: </label>
+          <div class="col-sm-10">
+            <ng-select [items]="carList" class="form-control" bindLabel="name" bindValue="id" formControlName="carId">
+            </ng-select>
+          </div>
+        </div>
+        <div class="form-group">
+          <label class="control-label col-sm-2" for="id">id: </label>
+          <div class="col-sm-10">
+            <input class="form-control" type="text" formControlName="id">
+          </div>
+        </div>
+        <div class="form-group">
+          <label class="control-label col-sm-2" for="name"> name: </label>
+          <div class="col-sm-10">
+            <input class="form-control" type="text" formControlName="name">
+          </div>
+          <div *ngIf="teacherDtoFg.controls['name'].touched
+  && teacherDtoFg.controls['name'].errors?.['required']" class="alert alert-danger">
+            Name is required
+          </div>
+          <div *ngIf="teacherDtoFg.controls['name'].touched
+  && teacherDtoFg.controls['name'].errors?.['maxlength']" class="alert alert-danger">
+            Max Length 3
+          </div>
+        </div>
+        <button class="btn btn-primary" type="button" (click)="save()">Submit</button>
+        <button class="btn btn-primary" type="button" (click)="update()">update</button>
+      </form>
+      <hr />
     </div>
-    <div class="col-md-4">
-      <label for="">id: </label>
-      <input type="text" formControlName="id">
-    </div>
-    <div class="col-md-4">
-      <label for=""> name: </label>
-      <input type="text" formControlName="name">
-      <div *ngIf="teacherDtoFg.controls['name'].touched
-&& teacherDtoFg.controls['name'].errors?.['required']" class="alert alert-danger">
-        Name is required
-      </div>
-      <div *ngIf="teacherDtoFg.controls['name'].touched
-&& teacherDtoFg.controls['name'].errors?.['maxlength']" class="alert alert-danger">
-        Max Length 3
-      </div>
-    </div>
-
-    <div class="col-md-4">
-      <button type="button" (click)="save()">Submit</button>
+    <div class="col-6">
+      <!--{{teacherDtoList | json}}-->
+      <button class="btn btn-warning" (click)="search()">search</button>
+      <table class="table table-striped">
+        <thead>
+          <tr>
+            <th>id</th>
+            <th>name</th>
+            <th>action</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let teacherDto of teacherDtoList">
+            <td>{{teacherDto.id}}</td>
+            <td>{{teacherDto.name}}</td>
+            <td>
+              <button class="btn btn-info" (click)="onUpdateClick(teacherDto)">Edit</button>
+              <button class="btn btn-danger" (click)="delete(teacherDto)">Delete</button>
+            </td>
+          </tr>
+        </tbody>
+      </table>
     </div>
   </div>
-
-</form>
-
-<hr/>
-<!--{{teacherDtoList | json}}-->
-<button (click)="search()">search</button>
-<table class="table table-striped">
-  <thead>
-  <tr>
-    <th>id</th>
-    <th>name</th>
-    <th>action</th>
-  </tr>
-  </thead>
-  <tbody>
-  <tr *ngFor="let teacherDto of teacherDtoList">
-    <td>{{teacherDto.id}}</td>
-    <td>{{teacherDto.name}}</td>
-    <td>
-      <button (click)="edit(teacherDto)">Edit</button>
-      <button (click)="delete(teacherDto)">Delete</button>
-    </td>
-  </tr>
-
-
-  </tbody>
-</table>
+</div>
