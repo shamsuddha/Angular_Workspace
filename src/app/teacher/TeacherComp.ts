@@ -10,7 +10,6 @@ import { TeacherDtoService } from './TeacherDtoService';
 })
 export class TeacherComp {
 
-
   carList = [
     { id: 1, name: 'Volvo' },
     { id: 2, name: 'Saab' },
@@ -82,6 +81,11 @@ export class TeacherComp {
       console.log(e);
       this.search();
     })
+  }
+
+  ngOnInit()
+  {
+    this.search();
   }
 
 }
