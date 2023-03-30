@@ -1,3 +1,4 @@
+import { PersonComp } from './../person/PersonComp';
 
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
@@ -19,18 +20,24 @@ export class TeacherDtoService {
     return this.httpClient.post<TeacherDto>("http://localhost:3000/teacher", teacherDto);
   }
 
-  deleteTeacher(v:any){
-    this.httpClient.delete('http://localhost:3000/teacher/'+v.id).subscribe();
+  deleteTeacher(teacherDto: TeacherDto) {
+    this.httpClient.delete<TeacherDto>('http://localhost:3000/teacher/' + teacherDto.id).subscribe();
     console.log("successfully Deleted...");
   }
 
-  updateTeacher(teacherDto: TeacherDto): Observable<TeacherDto> {    
+  updateTeacher(teacherDto: TeacherDto): Observable<TeacherDto> {
     return this.httpClient.put<TeacherDto>('http://localhost:3000/teacher/'
-    +teacherDto.id, teacherDto);
+      + teacherDto.id, teacherDto);
   }
 
 
+ 
+
+
+ 
+
   
+
 }
 
 
