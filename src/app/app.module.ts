@@ -11,6 +11,7 @@ import { ProfileEditorComponent } from './profile-editor/profile-editor.componen
 import { StudentComp } from './student/StudentComp';
 import { PersonComp } from './person/PersonComp';
 import {NgSelectModule} from "@ng-select/ng-select";
+import {RxjsExampleComp} from "./rxjs_example/RxjsExampleComp";
 
 
 @NgModule({
@@ -29,7 +30,8 @@ import {NgSelectModule} from "@ng-select/ng-select";
     HttpClientModule,
     ReactiveFormsModule,
     NgSelectModule,
-    FormsModule
+    FormsModule,
+    RxjsExampleComp
   ],
   providers: [],
   bootstrap: [AppComponent]
