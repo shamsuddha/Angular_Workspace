@@ -26,6 +26,7 @@ export class RxjsExampleComp {
         newArray.push(priceList[i] + 2)
       }
     }
+
     let sum = 0;
     for (let i = 0; i < newArray.length; i++) {
       sum = sum + newArray[i]
@@ -162,17 +163,14 @@ export class RxjsExampleComp {
         subscriber.next(48);
       }, 3000);
     });
-
     observable.subscribe((e => {
-      console.log(e)
+      console.log(e);
     }))
-
     observable.subscribe((e => {
-      console.log(e)
+      console.log(e);
     }))
-
     observable.subscribe((e => {
-      console.log(e)
+      console.log(e);
     }))
 
   }

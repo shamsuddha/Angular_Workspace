@@ -12,6 +12,7 @@ import { StudentComp } from './student/StudentComp';
 import { PersonComp } from './person/PersonComp';
 import {NgSelectModule} from "@ng-select/ng-select";
 import {RxjsExampleComp} from "./rxjs_example/RxjsExampleComp";
+import { AgGridCompModule } from './ag_grid_test/AgGridCompModule';
 
 
 @NgModule({
@@ -21,7 +22,8 @@ import {RxjsExampleComp} from "./rxjs_example/RxjsExampleComp";
     ProfileEditorComponent,
     BookComp,
     PersonComp,
-    TeacherComp
+    TeacherComp,
+   
 
   ],
   imports: [
@@ -31,7 +33,8 @@ import {RxjsExampleComp} from "./rxjs_example/RxjsExampleComp";
     ReactiveFormsModule,
     NgSelectModule,
     FormsModule,
-    RxjsExampleComp
+    RxjsExampleComp,
+    AgGridCompModule
   ],
   providers: [],
   bootstrap: [AppComponent]
