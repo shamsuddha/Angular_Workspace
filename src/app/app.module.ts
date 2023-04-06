@@ -6,7 +6,7 @@ import { HttpClientModule } from '@angular/common/http';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
-import { ProfileEditorComponent } from './profile-editor/profile-editor.component';
+
 import { StudentComp } from './student/StudentComp';
 import { PersonComp } from './person/PersonComp';
 import {NgSelectModule} from "@ng-select/ng-select";
@@ -20,7 +20,7 @@ import { CrudPracticeOneComp } from './crud_practice_one/CrudPracticeOneComp';
   declarations: [
     AppComponent,
     StudentComp,
-    ProfileEditorComponent,
+ 
     BookComp,
     PersonComp,
     TeacherComp,
