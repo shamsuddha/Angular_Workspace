@@ -8,7 +8,6 @@ import { CommonModule } from '@angular/common';
 @NgModule({
   declarations: [
     AgGridComp,
-   
 
   ],
   imports: [
@@ -19,7 +18,7 @@ import { CommonModule } from '@angular/common';
     AgGridComp,
   ],
   providers: [],
- 
+
 })
 
 export class AgGridCompModule {

@@ -13,8 +13,6 @@ import { AgGridAngular } from 'ag-grid-angular';
 })
 export class AgGridComp {
 
-
-
   constructor(private lionDtoService: LionDtoService, private http: HttpClient) {
 
   }

@@ -31,18 +31,7 @@
       "name": "ooo"
     }
   ],
-  "teacher": [
-    {
-      "id": "1",
-      "name": "asd",
-      "carId": 1
-    },
-    {
-      "id": "2",
-      "name": "asddfas sa ",
-      "carId": 2
-    }
-  ],
+  "teacher": [],
   "book": [
     {
       "id": 1,
@@ -74,5 +63,6 @@
       "authorName": "asasdad",
       "publisherName": "adasd"
     }
-  ]
+  ],
+  "crudPracticeDto": []
 }
