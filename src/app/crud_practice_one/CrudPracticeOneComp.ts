@@ -1,12 +1,10 @@
-import { HorseDto } from './HorseDto';
-import { FormControl, FormGroup } from '@angular/forms';
-import { StudentDtoService } from './../student/StudentDtoService';
-import { Component, ViewChild } from "@angular/core";
-import { CrudPracticeOneDtoService } from './CrudPracticeOneDtoService';
-import { ColDef, GridReadyEvent } from 'ag-grid-community';
-import { Observable } from 'rxjs';
-import { AgGridAngular } from 'ag-grid-angular';
-import { HttpClient } from '@angular/common/http';
+import {HorseDto} from './HorseDto';
+import {FormControl, FormGroup} from '@angular/forms';
+import {Component} from "@angular/core";
+import {CrudPracticeOneDtoService} from './CrudPracticeOneDtoService';
+import {ColDef} from 'ag-grid-community';
+import {HttpClient} from '@angular/common/http';
+import {CellComp} from "./CellComp";
 
 @Component({
   selector: 'CrudPracticeOneComp',
@@ -16,25 +14,25 @@ import { HttpClient } from '@angular/common/http';
 export class CrudPracticeOneComp {
 
   divisionList: Array<{ id: number, name: string }> = [
-    { id: 1, name: 'Division 1' },
-    { id: 2, name: 'Division 2' },
-    { id: 3, name: 'Division 3' },
-    { id: 4, name: 'Division 4' },
+    {id: 1, name: 'Division 1'},
+    {id: 2, name: 'Division 2'},
+    {id: 3, name: 'Division 3'},
+    {id: 4, name: 'Division 4'},
   ];
   districtWithDivisionList = [
-    { id: 1, name: 'district 11', divisionId: 1 },
-    { id: 2, name: 'district 12', divisionId: 1 },
-    { id: 3, name: 'district 13', divisionId: 1 },
-    { id: 4, name: 'district 21', divisionId: 2 },
-    { id: 5, name: 'district 22', divisionId: 2 },
+    {id: 1, name: 'district 11', divisionId: 1},
+    {id: 2, name: 'district 12', divisionId: 1},
+    {id: 3, name: 'district 13', divisionId: 1},
+    {id: 4, name: 'district 21', divisionId: 2},
+    {id: 5, name: 'district 22', divisionId: 2},
   ];
   districtList: Array<{ id: number, name: string }> = [];
   thanaWithDistrictList = [
-    { id: 1, name: 'thana 11', districtId: 1 },
-    { id: 2, name: 'thana 22', districtId: 1 },
-    { id: 3, name: 'thana 33', districtId: 2 },
-    { id: 3, name: 'thana 44', districtId: 3 },
-    { id: 4, name: 'thana 55', districtId: 3 },
+    {id: 1, name: 'thana 11', districtId: 1},
+    {id: 2, name: 'thana 22', districtId: 1},
+    {id: 3, name: 'thana 33', districtId: 2},
+    {id: 3, name: 'thana 44', districtId: 3},
+    {id: 4, name: 'thana 55', districtId: 3},
   ];
   thanaList: Array<{ id: number, name: string }> = [];
   crudPracticeOneFg = new FormGroup({
@@ -50,8 +48,30 @@ export class CrudPracticeOneComp {
     gender: new FormControl<string | null>(null)
   })
   horseDtoList: Array<HorseDto> = [];
+
+
+  //for ag-grid
+  frameworkComponents = {btnCellRenderer: CellComp};
   columnDefs: ColDef[] = [
-    
+    {
+      headerName: 'Action', editable: false, colId: 'action', width: 200,
+      cellRenderer: 'btnCellRenderer',resizable: true,
+      cellRendererParams: {
+        updateFlag: true,
+        deleteFlag: true,
+        viewFlag: true,
+        update: (param: any) => {
+          this.updateHorse(param);
+        },
+        delete: (param: any) => {
+          this.deleteHorse(param);
+        },
+        view: (param: any) => {
+          this.viewHorse(param);
+        }
+      },
+      pinned: 'left'
+    },
     {headerName: 'Id', field: 'id', editable: false, colId: 'id', width: 100, sortable: true, filter: true},
     {headerName: 'Name', field: 'name', editable: false, colId: 'name', width: 100, filter: true},
     {headerName: 'address', field: 'address', editable: false, colId: 'address', width: 100, filter: true},
@@ -60,12 +80,28 @@ export class CrudPracticeOneComp {
     {headerName: 'thanaId', field: 'thanaId', editable: false, colId: 'thanaId', width: 100, filter: true},
     {headerName: 'gender', field: 'gender', editable: false, colId: 'gender', width: 100, filter: true},
   ];
-  
-  constructor(private crudPracticeOneDtoService: CrudPracticeOneDtoService, private http: HttpClient) { }
+
+  constructor(
+    private crudPracticeOneDtoService: CrudPracticeOneDtoService,
+    private http: HttpClient) {
+  }
 
   ngOnInit() {
     this.search();
   }
+
+  private updateHorse(param: any) {
+    console.log(param.data);
+  }
+
+  private deleteHorse(param: any) {
+    console.log(param.data);
+  }
+
+  private viewHorse(param: any) {
+    console.log(param.data);
+  }
+
 
   save() {
     console.log(this.crudPracticeOneFg.value);
@@ -76,7 +112,7 @@ export class CrudPracticeOneComp {
   }
 
   loadData() {
-    const crudPracticeOneDto: HorseDto = new HorseDto({ id: 5, name: "CrudPracticeOne 5" });
+    const crudPracticeOneDto: HorseDto = new HorseDto({id: 5, name: "CrudPracticeOne 5"});
     this.crudPracticeOneFg.patchValue(crudPracticeOneDto);
   }
 
@@ -129,7 +165,7 @@ export class CrudPracticeOneComp {
     this.crudPracticeOneFg.patchValue({
       divisionName: $event.name
     });
-    
+
   }
 
   onSelectDistrict($event: { id: number, name: string }) {
@@ -143,5 +179,17 @@ export class CrudPracticeOneComp {
       thanaName: $event.name
     });
   }
+
+  parentVal: number = 1;
+
+  click1() {
+    this.parentVal = this.parentVal + 1;
+  }
+
+  fn1(v: string) {
+    console.log(v);
+  }
+
+
 }
 

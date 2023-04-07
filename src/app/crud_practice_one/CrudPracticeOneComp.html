@@ -1,5 +1,17 @@
 <h1>Crud Practice One</h1>
 
+<button (click)="click1()">inc 0</button> {{parentVal}}
+
+<hr/>
+
+<Child1Comp [childVal1]="parentVal"></Child1Comp><hr/>
+
+<Child2Comp [childVal2]="parentVal" (child2Emitter)="fn1($event)"></Child2Comp><hr/>
+
+
+
+
+
 <div class="container">
   <div class="row">
     <div class="col-4">
@@ -103,7 +115,8 @@
         </tbody>
       </table> -->
       <ag-grid-angular #agGrid style="width: 100%; height: 545px;" class="ag-theme-material" animateRows
-        [rowData]="horseDtoList" [columnDefs]="columnDefs">
+                       [frameworkComponents]="frameworkComponents"
+                       [rowData]="horseDtoList" [columnDefs]="columnDefs">
       </ag-grid-angular>
     </div>
   </div>
