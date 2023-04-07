@@ -64,5 +64,18 @@
       "publisherName": "adasd"
     }
   ],
-  "crudPracticeDto": []
+  "crudPracticeDto": [
+    {
+      "id": "1",
+      "name": "1",
+      "address": "1",
+      "divisionId": 2,
+      "divisionName": "Division 2",
+      "districtId": null,
+      "districtName": null,
+      "thanaId": null,
+      "thanaName": null,
+      "gender": "Male"
+    }
+  ]
 }
