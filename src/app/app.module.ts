@@ -10,9 +10,8 @@ import { StudentComp } from './student/StudentComp';
 import { PersonComp } from './person/PersonComp';
 import { NgSelectModule } from "@ng-select/ng-select";
 import { RxjsExampleComp } from "./rxjs_example/RxjsExampleComp";
-import { AgGridCompModule } from './ag_grid_test/AgGridCompModule';
-import { CrudPracticeOneComp } from './crud_practice_one/CrudPracticeOneComp';
 import { CrudPracticeOneCompModule } from './crud_practice_one/CrudPracticeOneCompModule';
+
 
 
 @NgModule({
@@ -22,7 +21,7 @@ import { CrudPracticeOneCompModule } from './crud_practice_one/CrudPracticeOneCo
     BookComp,
     PersonComp,
     TeacherComp,
-   
+    
   ],
   imports: [
     BrowserModule,
@@ -32,7 +31,8 @@ import { CrudPracticeOneCompModule } from './crud_practice_one/CrudPracticeOneCo
     NgSelectModule,
     FormsModule,
     RxjsExampleComp,
-    CrudPracticeOneCompModule
+    CrudPracticeOneCompModule,
+   
   ],
   providers: [],
   bootstrap: [AppComponent]

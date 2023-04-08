@@ -1,5 +1,4 @@
 import {NgModule} from "@angular/core";
-import {AgGridComp} from "../ag_grid_test/AgGridComp";
 import {CommonModule} from "@angular/common";
 import {AgGridModule} from "ag-grid-angular";
 import {CrudPracticeOneComp} from "./CrudPracticeOneComp";
@@ -8,13 +7,16 @@ import {ReactiveFormsModule} from "@angular/forms";
 import {Child1Comp} from "./child1/Child1Comp";
 import {Child2Comp} from "./child2/Child2Comp";
 import {CellComp} from "./CellComp";
+import { Child3Comp } from "./child3/Child3Comp";
 
 @NgModule({
   declarations: [
     CrudPracticeOneComp,
     CellComp,
     Child1Comp,
-    Child2Comp
+    Child2Comp,
+    Child3Comp
+   
   ],
   imports: [
     CommonModule,

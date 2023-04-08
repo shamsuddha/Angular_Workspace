@@ -72,10 +72,7 @@ export class CrudPracticeOneComp {
       },
       pinned: 'left'
     },
-    {headerName: 'Id', field: 'id', editable: false, colId: 'id', width: 100, sortable: true, filter: true},
-    {headerName: 'Name', field: 'name', editable: false, colId: 'name', width: 100, filter: true},
-    {headerName: 'address', field: 'address', editable: false, colId: 'address', width: 100, filter: true},
-    {headerName: 'divisionId', field: 'divisionId', editable: false, colId: 'divisionId', width: 100, filter: true},
+    {headerName: 'Id', field: 'divisionId', editable: false, colId: 'divisionId', width: 100, filter: true},
     {headerName: 'districtId', field: 'districtId', editable: false, colId: 'districtId', width: 100, filter: true},
     {headerName: 'thanaId', field: 'thanaId', editable: false, colId: 'thanaId', width: 100, filter: true},
     {headerName: 'gender', field: 'gender', editable: false, colId: 'gender', width: 100, filter: true},
@@ -181,6 +178,8 @@ export class CrudPracticeOneComp {
   }
 
   parentVal: number = 1;
+  rajitValue: string = "hello world";
+  
 
   click1() {
     this.parentVal = this.parentVal + 1;
@@ -189,6 +188,11 @@ export class CrudPracticeOneComp {
   fn1(v: string) {
     console.log(v);
   }
+
+  fn2(v: number) {
+    console.log(v);
+    
+    }
 
 
 }
