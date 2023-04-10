@@ -1,5 +1,4 @@
-import {Component, OnInit} from "@angular/core";
-
+import { Component, OnInit } from "@angular/core";
 
 class NestDto {
   id: number | null = null;
@@ -9,7 +8,6 @@ class NestDto {
     Object.assign(this, o);
   }
 }
-
 class EggDto {
   id: number | null = null;
   size: string | null = null;
@@ -20,7 +18,6 @@ class EggDto {
 }
 
 class BirdDto {
-
   id: number | null = null;
   name: string | null = null;
   age: number | null = null;
@@ -34,25 +31,47 @@ class BirdDto {
   }
 }
 
+// class CourseDto {
+//   courseName: string | null = null;
+//   courseCode: string | null = null;
+//   courseTeacher: string | null = null;
+
+//   constructor(o?: Partial<CourseDto>) {
+//     Object.assign(this, o);
+//   }
+// }
+
+// class StudentDto {
+//   id: number | null = null;
+//   studentName: string | null = null;
+//   studentAge: number | null = null;
+//   courseDtoList: Array<CourseDto> = [];
+
+//   constructor(o?: Partial<StudentDto>) {
+//     Object.assign(this, o);
+//   }
+// }
+
 @Component({
   selector: 'CollectionManipulateComp',
   standalone: true,
   template: `
     <button (click)="showSeniorBird()">senior bird</button>
-
   `,
 })
 export class CollectionManipulateComp implements OnInit {
 
   birdDtoList: Array<BirdDto> = [];
+  eggDtoList: Array<EggDto> = [];
 
   ngOnInit(): void {
 
     for (let i = 1; i <= 10; i++) {
-      const birdDto: BirdDto = new BirdDto({id: i, name: "name " + i, age: 10 + i});
+
+      const birdDto: BirdDto = new BirdDto({ id: i, name: "name " + i, age: 10 + i });
       const eggDtoList: Array<EggDto> = this.getEggDto(birdDto)
-      const nestDto: NestDto = new NestDto({id: 0, location: ""});
       birdDto.eggDtoList = eggDtoList;
+      const nestDto: NestDto = new NestDto({ id: 0, location: "" });
       birdDto.nestDto = nestDto;
       this.birdDtoList = [...this.birdDtoList, JSON.parse(JSON.stringify(birdDto))];
     }
@@ -60,7 +79,23 @@ export class CollectionManipulateComp implements OnInit {
   }
 
   private getEggDto(birdDto: BirdDto): Array<EggDto> {
+
+    for (let i = 1; i <= this.birdDtoList.length; i++) {
+
+        // console.log(birdDto);
+      const eggDto: EggDto = new EggDto({id:i *10 + i, size: "size" + i + 10})
+
+     // console.log(eggDto);
+
+     const arrayOfEggDto : any = [...this.eggDtoList, JSON.parse(JSON.stringify(eggDto))];
+
+       console.log(arrayOfEggDto);
+    }
+
+    // console.log(birdDto.eggDtoList);
+
     return [];
+
   }
 
   showSeniorBird() {
@@ -71,6 +106,4 @@ export class CollectionManipulateComp implements OnInit {
       }
     }
   }
-
-
 }

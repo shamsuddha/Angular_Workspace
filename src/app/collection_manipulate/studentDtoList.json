@@ -1,0 +1,109 @@
+[
+  {
+    "id": 1,
+    "studentName": "student name 1",
+    "studentAge": 20,
+    "studentMobileNumber": "student mobile 1",
+    "courseDtoList": [
+      {
+        "courseName": "course name 1",
+        "courseCode": "course code 1",
+        "courseTeacherName": "course teacher name 1"
+      },
+      {
+        "courseName": "course name 2",
+        "courseCode": "course code 2",
+        "courseTeacherName": "course teacher name 2"
+      },
+      {
+        "courseName": "course name 3",
+        "courseCode": "course code 3",
+        "courseTeacherName": "course teacher name 3"
+      },
+      {
+        "courseName": "course name 4",
+        "courseCode": "course code 4",
+        "courseTeacherName": "course teacher name 4"
+      }
+    ]
+  },
+  {
+    "id": 2,
+    "studentName": "student name 2",
+    "studentAge": 19,
+    "studentMobileNumber": "student mobile 2",
+    "courseDtoList": [
+      {
+        "courseName": "course name 21",
+        "courseCode": "course code 21",
+        "courseTeacherName": "course teacher name 21"
+      },
+      {
+        "courseName": "course name 22",
+        "courseCode": "course code 22",
+        "courseTeacherName": "course teacher name 22"
+      },
+      {
+        "courseName": "course name 23",
+        "courseCode": "course code 23",
+        "courseTeacherName": "course teacher name 23"
+      },
+      {
+        "courseName": "course name 24",
+        "courseCode": "course code 24",
+        "courseTeacherName": "course teacher name 24"
+      }
+    ]
+  },
+  {
+    "id": 3,
+    "studentName": "student name 3",
+    "studentAge": 19,
+    "studentMobileNumber": "student mobile 3",
+    "courseDtoList": [
+      {
+        "courseName": "course name 31",
+        "courseCode": "course code 31",
+        "courseTeacherName": "course teacher name 31"
+      },
+      {
+        "courseName": "course name 32",
+        "courseCode": "course code 32",
+        "courseTeacherName": "course teacher name 32"
+      },
+      {
+        "courseName": "course name 33",
+        "courseCode": "course code 33",
+        "courseTeacherName": "course teacher name 33"
+      },
+      {
+        "courseName": "course name 34",
+        "courseCode": "course code 34",
+        "courseTeacherName": "course teacher name 34"
+      },
+      {
+        "courseName": "course name 35",
+        "courseCode": "course code 35",
+        "courseTeacherName": "course teacher name 35"
+      }
+    ]
+  },
+  {
+    "id": 4,
+    "studentName": "student name 4",
+    "studentAge": 21,
+    "studentMobileNumber": "student mobile 4",
+    "courseDtoList": [
+      {
+        "courseName": "course name 41",
+        "courseCode": "course code 41",
+        "courseTeacherName": "course teacher name 41"
+      },
+      {
+        "courseName": "course name 42",
+        "courseCode": "course code 42",
+        "courseTeacherName": "course teacher name 42"
+      }
+    ]
+  }
+]

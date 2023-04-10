@@ -9,25 +9,19 @@ import { BookDto } from './BookDto';
   styleUrls: ['./BookComp.scss']
 })
 export class BookComp {
-
-  constructor(private bookDtoService: BookDtoService) { }
-
   bookDtoFg = new FormGroup({
     id: new FormControl<number | null>(null),
     bookName: new FormControl<string | null>(null),
     authorName: new FormControl<string | null>(null),
     publisherName: new FormControl<string | null>(null),
-
   });
-
   bookDtoList: Array<BookDto> = [];
+  
+  constructor(private bookDtoService: BookDtoService) { }
 
   save() {
-
     console.log(this.bookDtoFg.value);
     this.bookDtoService.saveBook(new BookDto(this.bookDtoFg.value)).subscribe(e => e);
-
-
   }
 
   loadAllData() {
