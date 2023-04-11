@@ -34,34 +34,11 @@
   "teacher": [],
   "book": [
     {
-      "id": 1,
-      "bookName": "book 1",
-      "authorName": "author 1",
-      "publisherName": "publisher 1"
-    },
-    {
-      "id": 2,
-      "bookName": "book 2",
-      "authorName": "author 2",
-      "publisherName": "publisher 2"
-    },
-    {
       "id": 3,
       "bookName": "book 3",
       "authorName": "author 3",
-      "publisherName": "publisher 3"
-    },
-    {
-      "id": "22",
-      "bookName": "das",
-      "authorName": "adsadasd",
-      "publisherName": "asdad"
-    },
-    {
-      "id": "a2",
-      "bookName": "asdsad",
-      "authorName": "asasdad",
-      "publisherName": "adasd"
+      "publisherName": "publisher 3",
+      "publishedYear": "2023-04-22"
     }
   ],
   "crudPracticeDto": [

@@ -1,20 +1,90 @@
 {{bookDtoFg.value | json}}
 <hr />
-<form [formGroup]="bookDtoFg">
-  <label for="id">id</label>
-  <input type="text" formControlName="id" />
-  <label for="bookName">Book Name</label>
-  <input type="text" formControlName="bookName" />
-  <div *ngIf="bookDtoFg.controls['bookName'].touched" class="alert alert-danger">
-    Name is required!!!
-  </div>
-  <div>
-  </div>
-  <label for="authorName">Author Name</label>
-  <input type="text" formControlName="authorName" />
-  <label for="publisherName">Publisher Name</label>
-  <input type="text" formControlName="publisherName" />
-  <button type="button" (click)="save()">Save </button>
-</form>
-<hr />
+
 {{bookDtoList | json}}
+<hr />
+
+<div class="container-fluid">
+  <h2>Add new Book</h2>
+  <p>The .row-cols-* classes are used to set the number of columns that should appear next to each other.</p>
+  <div class="row row-cols-2">
+    <div class="col">
+      <form [formGroup]="bookDtoFg">
+        <div class="form-group">
+          <label for="id">id</label>
+          <input formControlName="id" type="text" class="form-control" placeholder="Enter book id" id="id">
+        </div>
+        <div class="form-group">
+          <label for="bookName">Book Name</label>
+          <input formControlName="bookName" type="text" class="form-control" placeholder="Enter book name"
+            id="bookName">
+          <div *ngIf="bookDtoFg.controls['bookName'].touched && bookDtoFg.controls['bookName'].errors?.['required']"
+            class="alert alert-danger"> book name is required!!!
+          </div>
+        </div>
+        <div class="form-group">
+          <label for="bookName">Author Name</label>
+          <input formControlName="authorName" type="text" class="form-control" placeholder="Enter author name"
+            id="authorName">
+          <div *ngIf="bookDtoFg.controls['authorName'].touched && bookDtoFg.controls['authorName'].errors?.['required']"
+            class="alert alert-danger"> author name is required!!!
+          </div>
+        </div>
+        <div class="form-group">
+          <label for="bookName">Publisher Name</label>
+          <input formControlName="publisherName" type="text" class="form-control" placeholder="Enter publisher name"
+            id="publisherName">
+          <div
+            *ngIf="bookDtoFg.controls['publisherName'].touched && bookDtoFg.controls['publisherName'].errors?.['required']"
+            class="alert alert-danger"> publisher name is required!!!
+          </div>
+        </div>
+        <div class="form-group">
+          <label for="bookName">Published Year</label>
+          <input formControlName="publishedYear" type="date" class="form-control" placeholder="Enter published Year"
+            id="publishedYear">
+          <div
+            *ngIf="bookDtoFg.controls['publishedYear'].touched && bookDtoFg.controls['publishedYear'].errors?.['required']"
+            class="alert alert-danger"> published year is required!!!
+          </div>
+        </div>
+        <button type="button" class="btn btn-primary" (click)="save()">Save Book</button>
+        <button type="button" class="btn btn-primary" (click)="update()">Update Book</button>
+        <button type="button" class="btn btn-secondary" (click)="reset()">Rest Form</button>
+      </form>
+    </div>
+    <div class="col">
+      <table class="table">
+        <thead class="thead-dark">
+          <tr>
+            <th>id</th>
+            <th>Book</th>
+            <th>Author</th>
+            <th>Publisher</th>
+            <th>Published Date</th>
+            <th>Action</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let bookDto of bookDtoList">
+            <td>{{bookDto.id}}</td>
+            <td>{{bookDto.bookName}}</td>
+            <td>{{bookDto.authorName}}</td>
+            <td>{{bookDto.publisherName}}</td>
+            <td>{{bookDto.publishedYear}}</td>
+            <td>
+              <button type="button" class="btn btn-dark" (click)="view(bookDto)">View</button>
+              <button type="button" class="btn btn-warning" (click)="edit(bookDto)">Edit</button>
+              <button type="button" class="btn btn-danger" (click)="delete(bookDto)">Delete</button>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+      <!-- 
+    <ag-grid-angular #agGrid style="width: 100%; height: 545px;" class="ag-theme-material" animateRows
+    [frameworkComponents]="frameworkComponents" [rowData]="bookDtoList" [columnDefs]="columnDefs">
+  </ag-grid-angular> -->
+
+    </div>
+  </div>
+  <br>

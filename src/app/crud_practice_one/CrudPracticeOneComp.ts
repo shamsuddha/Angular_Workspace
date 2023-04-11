@@ -49,7 +49,6 @@ export class CrudPracticeOneComp {
   })
   horseDtoList: Array<HorseDto> = [];
 
-
   //for ag-grid
   frameworkComponents = {btnCellRenderer: CellComp};
   columnDefs: ColDef[] = [

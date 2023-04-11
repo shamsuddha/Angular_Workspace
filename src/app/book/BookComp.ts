@@ -1,7 +1,10 @@
-import { FormGroup, FormControl } from '@angular/forms';
+import { FormGroup, FormControl, Validators } from '@angular/forms';
 import { Component } from '@angular/core';
 import { BookDtoService } from './BookDtoService';
 import { BookDto } from './BookDto';
+import { ColDef } from 'ag-grid-community';
+import { CellComp } from './CellComp';
+import { HttpClient } from '@angular/common/http';
 
 @Component({
   selector: 'BookComp',
@@ -9,31 +12,105 @@ import { BookDto } from './BookDto';
   styleUrls: ['./BookComp.scss']
 })
 export class BookComp {
+
   bookDtoFg = new FormGroup({
     id: new FormControl<number | null>(null),
-    bookName: new FormControl<string | null>(null),
-    authorName: new FormControl<string | null>(null),
-    publisherName: new FormControl<string | null>(null),
+    bookName: new FormControl<string | null>(null, Validators.required),
+    authorName: new FormControl<string | null>(null, Validators.required),
+    publisherName: new FormControl<string | null>(null, Validators.required),
+    publishedYear: new FormControl<number | null>(null, Validators.required),
   });
   bookDtoList: Array<BookDto> = [];
-  
-  constructor(private bookDtoService: BookDtoService) { }
+  //for ag-grid
+  frameworkComponents = { btnCellRenderer: CellComp };
+  columnDefs: ColDef[] = [
+    {
+      headerName: 'Action', editable: false, colId: 'action', width: 200,
+      cellRenderer: 'btnCellRenderer', resizable: true,
+      cellRendererParams: {
+        updateFlag: true,
+        deleteFlag: true,
+        viewFlag: true,
+        update: (param: any) => {
+          this.updateBook(param);
+        },
+        delete: (param: any) => {
+          this.deleteBook(param);
+        },
+        view: (param: any) => {
+          this.viewBook(param);
+        }
+      },
+      pinned: 'left'
+    },
+    { headerName: 'Id', field: 'bookId', editable: false, colId: 'bookId', width: 100, filter: true },
+    { headerName: 'Book Name', field: 'bookName', editable: false, colId: 'bookName', width: 100, filter: true },
+    { headerName: 'Author Name', field: 'authorName', editable: false, colId: 'authorName', width: 100, filter: true },
+    { headerName: 'Publisher Name', field: 'publisherName', editable: false, colId: 'publisherName', width: 100, filter: true },
+    { headerName: 'Published Year', field: 'publishedYear', editable: false, colId: 'publishedYear', width: 100, filter: true },
+  ];
+
+  constructor(private bookDtoService: BookDtoService, private http: HttpClient) { }
+
+  ngOnInit() {
+    this.search();
+  }
+
+  private updateBook(param: any) {
+    console.log(param.data);
+  }
+
+  private deleteBook(param: any) {
+    console.log(param.data);
+  }
+
+  private viewBook(param: any) {
+    console.log(param.data);
+  }
 
   save() {
     console.log(this.bookDtoFg.value);
     this.bookDtoService.saveBook(new BookDto(this.bookDtoFg.value)).subscribe(e => e);
   }
 
-  loadAllData() {
+  search() {
     this.bookDtoService.getBookList().subscribe((e: Array<BookDto>) => {
       this.bookDtoList = e;
     })
   }
 
+  reset() {
+    this.bookDtoFg.reset();
+  }
 
+  delete(bookDto: BookDto) {
+    this.bookDtoService.deleteBookDto(bookDto);
+    this.search();
+  }
 
+ 
+  view(bookDto: BookDto) {
+    throw new Error('Method not implemented.');
+  }
 
+  edit(bookDto: BookDto) {
+    this.bookDtoFg.patchValue({
+      id: bookDto.id,
+      bookName: bookDto.bookName,
+      authorName: bookDto.authorName,
+      publisherName: bookDto.publisherName,
+      publishedYear: bookDto.publishedYear,
+     
+    });
+    //this.search();
+  }
 
+  update() {
+    this.bookDtoService.updateBookDto(new BookDto(this.bookDtoFg.value)).subscribe(e => {
+        console.log(e);
+        this.search();
+      })
+  }
 
 }
 

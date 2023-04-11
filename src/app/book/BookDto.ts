@@ -4,6 +4,7 @@ export class BookDto {
   bookName: string | null = null;
   authorName: string | null = null;
   publisherName: string | null = null;
+  publishedYear: number | null = null;
 
 constructor(o?: Partial<BookDto>){
   Object.assign(this, o)
