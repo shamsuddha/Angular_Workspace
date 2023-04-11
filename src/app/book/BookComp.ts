@@ -83,6 +83,7 @@ export class BookComp {
   save() {
     console.log(this.bookDtoFg.value);
     this.bookDtoService.saveBook(new BookDto(this.bookDtoFg.value)).subscribe(e => e);
+    this.search();
   }
 
   search() {
@@ -96,26 +97,24 @@ export class BookComp {
   }
 
   
- 
-  view(bookDto: BookDto) {
-    throw new Error('Method not implemented.');
-  }
-
-  edit(bookDto: BookDto) {
-    this.bookDtoFg.patchValue({
-      id: bookDto.id,
-      bookName: bookDto.bookName,
-      authorName: bookDto.authorName,
-      publisherName: bookDto.publisherName,
-      publishedYear: bookDto.publishedYear,
+  // view(bookDto: BookDto) {
+  //   throw new Error('Method not implemented.');
+  // }
+  // edit(bookDto: BookDto) {
+  //   this.bookDtoFg.patchValue({
+  //     id: bookDto.id,
+  //     bookName: bookDto.bookName,
+  //     authorName: bookDto.authorName,
+  //     publisherName: bookDto.publisherName,
+  //     publishedYear: bookDto.publishedYear,
      
-    });
-    //this.search();
-  }
-  delete(bookDto: BookDto) {
-    this.bookDtoService.deleteBookDto(bookDto);
-    this.search();
-  }
+  //   });
+  //   //this.search();
+  // }
+  // delete(bookDto: BookDto) {
+  //   this.bookDtoService.deleteBookDto(bookDto);
+  //   this.search();
+  // }
 
   update() {
     this.bookDtoService.updateBookDto(new BookDto(this.bookDtoFg.value)).subscribe(e => {

@@ -161,12 +161,15 @@ export class CrudPracticeOneComp {
     this.crudPracticeOneFg.patchValue({
       divisionName: $event.name
     });
-
+   
+   // console.log($event);
+    this.districtList = this.districtWithDivisionList.filter((item) => item.divisionId == $event.id);
   }
 
   onSelectDistrict($event: { id: number, name: string }) {
     this.crudPracticeOneFg.patchValue({
       districtName: $event.name
+      
     });
   }
 

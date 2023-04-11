@@ -34,11 +34,11 @@
   "teacher": [],
   "book": [
     {
-      "id": 1,
-      "bookName": "book 5",
-      "authorName": "author 5",
-      "publisherName": "publisher 5",
-      "publishedYear": "2023-04-22"
+      "id": "1",
+      "bookName": "book 3",
+      "authorName": "sdfsdf",
+      "publisherName": "sfsdfsd",
+      "publishedYear": "2023-04-11"
     }
   ],
   "crudPracticeDto": [
