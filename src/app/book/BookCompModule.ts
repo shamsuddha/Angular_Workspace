@@ -1,20 +1,27 @@
 import {NgModule} from "@angular/core";
-import { BrowserModule } from "@angular/platform-browser";
-import { HttpClientModule } from "@angular/common/http";
+import { CommonModule } from "@angular/common";
+import { NgSelectModule } from "@ng-select/ng-select";
+import { ReactiveFormsModule } from "@angular/forms";
 import { AgGridModule } from "ag-grid-angular";
+import { CellComp } from "./CellComp";
 
 
 @NgModule({
   declarations: [
+    CellComp
    
   ],
   imports: [
-    BrowserModule,
-    HttpClientModule,
+    CommonModule,
+    NgSelectModule,
+    ReactiveFormsModule,
     AgGridModule
+    
+  ],
+  exports: [
+   
   ],
   providers: [],
- 
- })
+})
 export class BookCompModule {
 }

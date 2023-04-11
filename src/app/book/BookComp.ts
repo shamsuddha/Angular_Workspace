@@ -43,11 +43,11 @@ export class BookComp {
       },
       pinned: 'left'
     },
-    { headerName: 'Id', field: 'bookId', editable: false, colId: 'bookId', width: 100, filter: true },
-    { headerName: 'Book Name', field: 'bookName', editable: false, colId: 'bookName', width: 100, filter: true },
-    { headerName: 'Author Name', field: 'authorName', editable: false, colId: 'authorName', width: 100, filter: true },
-    { headerName: 'Publisher Name', field: 'publisherName', editable: false, colId: 'publisherName', width: 100, filter: true },
-    { headerName: 'Published Year', field: 'publishedYear', editable: false, colId: 'publishedYear', width: 100, filter: true },
+    { headerName: 'Id', resizable: true, field: 'id', editable: false, colId: 'id', width: 100, filter: true },
+    { headerName: 'Book Name', resizable: true, field: 'bookName', editable: false, colId: 'bookName', width: 100, filter: true },
+    { headerName: 'Author Name', resizable: true, field: 'authorName', editable: false, colId: 'authorName', width: 100, filter: true },
+    { headerName: 'Publisher Name', resizable: true, field: 'publisherName', editable: false, colId: 'publisherName', width: 100, filter: true },
+    { headerName: 'Published Year', resizable: true, field: 'publishedYear', editable: false, colId: 'publishedYear', width: 100, filter: true },
   ];
 
   constructor(private bookDtoService: BookDtoService, private http: HttpClient) { }
@@ -57,11 +57,23 @@ export class BookComp {
   }
 
   private updateBook(param: any) {
-    console.log(param.data);
+
+    this.bookDtoFg.patchValue({
+      id: param.data.id,
+      bookName: param.data.bookName,
+      authorName: param.data.authorName,
+      publisherName: param.data.publisherName,
+      publishedYear: param.data.publishedYear,
+     
+    });
+    //this.search();
+    //console.log(param.data);
   }
 
   private deleteBook(param: any) {
-    console.log(param.data);
+    this.bookDtoService.deleteBookDto(param.data);
+    this.search();
+    //console.log(param.data);
   }
 
   private viewBook(param: any) {
@@ -83,11 +95,7 @@ export class BookComp {
     this.bookDtoFg.reset();
   }
 
-  delete(bookDto: BookDto) {
-    this.bookDtoService.deleteBookDto(bookDto);
-    this.search();
-  }
-
+  
  
   view(bookDto: BookDto) {
     throw new Error('Method not implemented.');
@@ -104,6 +112,10 @@ export class BookComp {
     });
     //this.search();
   }
+  delete(bookDto: BookDto) {
+    this.bookDtoService.deleteBookDto(bookDto);
+    this.search();
+  }
 
   update() {
     this.bookDtoService.updateBookDto(new BookDto(this.bookDtoFg.value)).subscribe(e => {
@@ -113,6 +125,3 @@ export class BookComp {
   }
 
 }
-
-
-

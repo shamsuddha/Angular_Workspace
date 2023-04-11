@@ -1,6 +1,5 @@
 import {TeacherComp} from './teacher/TeacherComp';
 import {NgModule} from '@angular/core';
-import {BrowserModule} from '@angular/platform-browser';
 import {HttpClientModule} from '@angular/common/http';
 import {AppRoutingModule} from './app-routing.module';
 import {AppComponent} from './app.component';
@@ -11,15 +10,22 @@ import {RxjsExampleComp} from "./rxjs_example/RxjsExampleComp";
 import {CrudPracticeOneCompModule} from './crud_practice_one/CrudPracticeOneCompModule';
 import {CollectionManipulateComp} from "./collection_manipulate/CollectionManipulateComp";
 import { BookComp } from './book/BookComp';
+import { UserComp } from './user/UserComp';
+import { BookCompModule } from './book/BookCompModule';
+import { AgGridModule } from 'ag-grid-angular';
+import { CommonModule } from '@angular/common';
+import { BrowserModule } from '@angular/platform-browser';
 
 @NgModule({
   declarations: [
     AppComponent,
     StudentComp,
     TeacherComp,
-    BookComp
+    BookComp,
+    UserComp
   ],
   imports: [
+    CommonModule,
     BrowserModule,
     AppRoutingModule,
     HttpClientModule,
@@ -28,7 +34,10 @@ import { BookComp } from './book/BookComp';
     FormsModule,
     RxjsExampleComp,
     CrudPracticeOneCompModule,
-    CollectionManipulateComp
+    CollectionManipulateComp,
+    BookCompModule,
+    AgGridModule,
+   
   ],
   providers: [],
   bootstrap: [AppComponent]

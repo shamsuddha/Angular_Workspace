@@ -6,7 +6,7 @@ import {ICellRendererAngularComp} from "ag-grid-angular";
   template: `
     <span>
      <button *ngIf="params['updateFlag'] === true" (click)="update()"
-             class="btn btn-primary">Update</button>
+             class="btn btn-primary">Edit</button>
      <button *ngIf="params['deleteFlag'] === true" (click)="delete()"
              class="btn btn-danger">Delete</button>
      <button *ngIf="params['viewFlag'] === true" (click)="view()"
@@ -20,10 +20,14 @@ export class CellComp implements ICellRendererAngularComp {
 
   agInit(params: any): void {
     this.params = params;
+   
   }
 
   update() {
     this.params.update(this.params);
+
+    
+
   }
 
   delete() {
@@ -38,3 +42,4 @@ export class CellComp implements ICellRendererAngularComp {
     return false;
   }
 }
+

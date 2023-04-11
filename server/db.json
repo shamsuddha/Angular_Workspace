@@ -34,10 +34,10 @@
   "teacher": [],
   "book": [
     {
-      "id": 3,
-      "bookName": "book 3",
-      "authorName": "author 3",
-      "publisherName": "publisher 3",
+      "id": 1,
+      "bookName": "book 5",
+      "authorName": "author 5",
+      "publisherName": "publisher 5",
       "publishedYear": "2023-04-22"
     }
   ],
