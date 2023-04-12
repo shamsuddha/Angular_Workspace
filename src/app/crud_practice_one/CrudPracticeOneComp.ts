@@ -19,7 +19,7 @@ export class CrudPracticeOneComp {
     { id: 3, name: 'Division 3' },
     { id: 4, name: 'Division 4' },
   ];
-  districtWithDivisionList = [
+  districtWithDivisionList: Array<{id: number, name: string, divisionId: number}> = [
     { id: 1, name: 'district 11', divisionId: 1 },
     { id: 2, name: 'district 12', divisionId: 1 },
     { id: 3, name: 'district 13', divisionId: 1 },
@@ -27,12 +27,12 @@ export class CrudPracticeOneComp {
     { id: 5, name: 'district 22', divisionId: 2 },
   ];
   districtList: Array<{ id: number, name: string }> = [];
-  thanaWithDistrictList = [
-    { id: 1, name: 'thana 11', districtId: 11 },
-    { id: 2, name: 'thana 22', districtId: 11 },
-    { id: 3, name: 'thana 33', districtId: 12 },
-    { id: 3, name: 'thana 44', districtId: 13 },
-    { id: 4, name: 'thana 55', districtId: 13 },
+  thanaWithDistrictList: Array<{id: number, name: string, districtId: number}> = [
+    { id: 1, name: 'thana 11', districtId: 1 },
+    { id: 2, name: 'thana 22', districtId: 2 },
+    { id: 3, name: 'thana 33', districtId: 3 },
+    { id: 3, name: 'thana 44', districtId: 4 },
+    { id: 4, name: 'thana 55', districtId: 5 },
   ];
 
   thanaList: Array<{ id: number, name: string }> = [];
@@ -165,7 +165,7 @@ export class CrudPracticeOneComp {
     });
 
     // console.log($event);
-    this.districtList = this.districtWithDivisionList.filter((item) => item.divisionId == $event.id);
+    this.districtList = this.districtWithDivisionList.filter((e) => e.divisionId == $event.id);
     console.log(this.districtList);
   }
 
@@ -175,9 +175,9 @@ export class CrudPracticeOneComp {
 
     });
 
-    // console.log($event);
+    console.log($event);
     console.log(this.thanaWithDistrictList);
-    this.thanaList = this.thanaWithDistrictList.filter((item) => item.districtId == $event.id);
+    this.thanaList = this.thanaWithDistrictList.filter((e) => e.districtId == $event.id);
     console.log(this.thanaList);
   }
 
