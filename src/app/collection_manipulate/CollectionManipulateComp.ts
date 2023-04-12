@@ -1,4 +1,4 @@
-import { Component, OnInit } from "@angular/core";
+import {Component, OnInit} from "@angular/core";
 
 class NestDto {
   id: number | null = null;
@@ -8,6 +8,7 @@ class NestDto {
     Object.assign(this, o);
   }
 }
+
 class EggDto {
   id: number | null = null;
   size: string | null = null;
@@ -56,40 +57,40 @@ class BirdDto {
   selector: 'CollectionManipulateComp',
   standalone: true,
   template: `
+    <button (click)="load()">load</button>
     <button (click)="showSeniorBird()">senior bird</button>
   `,
 })
 export class CollectionManipulateComp implements OnInit {
 
   birdDtoList: Array<BirdDto> = [];
-  eggDtoList: Array<EggDto> = [];
 
   ngOnInit(): void {
 
     for (let i = 1; i <= 10; i++) {
-
-      const birdDto: BirdDto = new BirdDto({ id: i, name: "name " + i, age: 10 + i });
-      const eggDtoList: Array<EggDto> = this.getEggDto(birdDto)
-      birdDto.eggDtoList = eggDtoList;
-      const nestDto: NestDto = new NestDto({ id: 0, location: "" });
-      birdDto.nestDto = nestDto;
+      const birdDto: BirdDto = new BirdDto({id: i, name: "name " + i, age: 10 + i, aliveFlag: true});
+      birdDto.nestDto = new NestDto({id: 10 * i + 1, location: "location " + (10 * i + 1)});
+      birdDto.eggDtoList = this.getEggDtoList(birdDto);
       this.birdDtoList = [...this.birdDtoList, JSON.parse(JSON.stringify(birdDto))];
     }
-    console.log(this.birdDtoList)
+    console.log(this.birdDtoList);
   }
 
-  private getEggDto(birdDto: BirdDto): Array<EggDto> {
-     // console.log(birdDto);
+  load() {
+    console.log(this.birdDtoList);
+  }
 
-    for (let i = 1; i <= this.birdDtoList.length; i++) {
-      const eggDto: EggDto = new EggDto({ id: i * 10 + i, size: "size" + i + 10 })
-      // console.log(eggDto);
-      const eggDtoList = [...this.eggDtoList, JSON.parse(JSON.stringify(eggDto))];
-        console.log(eggDtoList);
+
+  private getEggDtoList(birdDto: BirdDto): Array<EggDto> {
+    let tempArr: Array<EggDto> = [];
+    if (birdDto.id) {
+      const t = birdDto.id * 10;
+      for (let i = 1; i <= birdDto.id; i++) {
+        tempArr = [...tempArr, JSON.parse(JSON.stringify(
+          new EggDto({id: t + i, size: 'size ' + (t + i)})))];
+      }
     }
-    birdDto.eggDtoList = this.eggDtoList;
-    return []
-
+    return tempArr;
   }
 
   showSeniorBird() {
@@ -100,4 +101,6 @@ export class CollectionManipulateComp implements OnInit {
       }
     }
   }
+
+
 }
