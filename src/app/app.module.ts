@@ -15,6 +15,7 @@ import { BookCompModule } from './book/BookCompModule';
 import { AgGridModule } from 'ag-grid-angular';
 import { CommonModule } from '@angular/common';
 import { BrowserModule } from '@angular/platform-browser';
+import { ParentComp } from './parent_child_data_passing/ParentComp';
 
 @NgModule({
   declarations: [
@@ -22,7 +23,8 @@ import { BrowserModule } from '@angular/platform-browser';
     StudentComp,
     TeacherComp,
     BookComp,
-    UserComp
+    UserComp,
+    ParentComp
   ],
   imports: [
     CommonModule,

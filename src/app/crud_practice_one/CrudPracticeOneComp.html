@@ -59,7 +59,7 @@
         <div class="form-group">
           <label class="control-label col-sm-2" for="id">Select Thana: </label>
           <div class="col-sm-10">
-            <ng-select [items]="districtList" class="form-control" [multiple]="true" bindLabel="name" bindValue="id"
+            <ng-select [items]="thanaList" class="form-control" [multiple]="true" bindLabel="name" bindValue="id"
               formControlName="thanaId" (change)="onSelectThana($event)">
             </ng-select>
           </div>

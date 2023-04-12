@@ -79,22 +79,16 @@ export class CollectionManipulateComp implements OnInit {
   }
 
   private getEggDto(birdDto: BirdDto): Array<EggDto> {
+     // console.log(birdDto);
 
     for (let i = 1; i <= this.birdDtoList.length; i++) {
-
-        // console.log(birdDto);
-      const eggDto: EggDto = new EggDto({id:i *10 + i, size: "size" + i + 10})
-
-     // console.log(eggDto);
-
-     const arrayOfEggDto : any = [...this.eggDtoList, JSON.parse(JSON.stringify(eggDto))];
-
-       console.log(arrayOfEggDto);
+      const eggDto: EggDto = new EggDto({ id: i * 10 + i, size: "size" + i + 10 })
+      // console.log(eggDto);
+      const eggDtoList = [...this.eggDtoList, JSON.parse(JSON.stringify(eggDto))];
+        console.log(eggDtoList);
     }
-
-    // console.log(birdDto.eggDtoList);
-
-    return [];
+    birdDto.eggDtoList = this.eggDtoList;
+    return []
 
   }
 
