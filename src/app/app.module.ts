@@ -16,6 +16,8 @@ import { AgGridModule } from 'ag-grid-angular';
 import { CommonModule } from '@angular/common';
 import { BrowserModule } from '@angular/platform-browser';
 import { ParentComp } from './parent_child_data_passing/ParentComp';
+import {RxjsExample2Comp} from "./rxjs_example/RxjsExample2Comp";
+import {SubjectExampleComp} from "./rxjs_example/SubjectExampleComp";
 
 @NgModule({
   declarations: [
@@ -39,7 +41,9 @@ import { ParentComp } from './parent_child_data_passing/ParentComp';
     CollectionManipulateComp,
     BookCompModule,
     AgGridModule,
-   
+    RxjsExample2Comp,
+    SubjectExampleComp
+
   ],
   providers: [],
   bootstrap: [AppComponent]
