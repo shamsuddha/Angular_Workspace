@@ -33,7 +33,6 @@ export class RxjsExampleComp {
       .subscribe((e: StudentDto) => console.log(e))
   }
 
-
   click2() {
     const observable: Observable<Array<string>> = new Observable((subscriber) => {
       subscriber.next(['aa', 'bb']);
@@ -47,7 +46,7 @@ export class RxjsExampleComp {
       setTimeout(() => {
         subscriber.next(['gggg', 'hhhhh', 'h', 'hh', 'hhhhh', 'hhhhh']);
       }, 3000);
-    });
+    }); 
 
     //subscribing
     observable
@@ -68,7 +67,7 @@ export class RxjsExampleComp {
      }));
      observable.subscribe((e => {
        console.log(e);
-     }));*/
+      v xc}));*/  
 
   }
 
