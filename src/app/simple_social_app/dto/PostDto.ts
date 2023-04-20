@@ -5,6 +5,7 @@ import {CommentDto} from "./CommentDto";
 export class PostDto {
 
   id: number | null = null;
+  title: string | null  = null;
   body: string | null = null;
   likeCount: number | null = null;
 
