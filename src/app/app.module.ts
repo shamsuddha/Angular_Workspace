@@ -18,6 +18,7 @@ import { BrowserModule } from '@angular/platform-browser';
 import { ParentComp } from './parent_child_data_passing/ParentComp';
 import {RxjsExample2Comp} from "./rxjs_example/RxjsExample2Comp";
 import {SubjectExampleComp} from "./rxjs_example/SubjectExampleComp";
+import {SocialAppComp} from "./simple_social_app/comp/SocialAppComp";
 
 @NgModule({
   declarations: [
@@ -42,7 +43,8 @@ import {SubjectExampleComp} from "./rxjs_example/SubjectExampleComp";
     BookCompModule,
     AgGridModule,
     RxjsExample2Comp,
-    SubjectExampleComp
+    SubjectExampleComp,
+    SocialAppComp
 
   ],
   providers: [],
