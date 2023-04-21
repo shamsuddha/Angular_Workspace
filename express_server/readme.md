@@ -4,4 +4,4 @@ npm install
 
 ### Run
 npm run build_start
-npm run dev
+

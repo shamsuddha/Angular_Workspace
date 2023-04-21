@@ -3,6 +3,7 @@ import dotenv from 'dotenv';
 import cors from 'cors';
 import Datastore from 'nedb';
 import {PostSearchDto} from "./dto/request/PostSearchDto";
+import {UserSearchDto} from "./dto/request/UserSearchDto";
 
 const userTable = new Datastore({filename: 'db/user.db', autoload: true});
 const postTable = new Datastore({filename: 'db/post.db', autoload: true});
@@ -21,10 +22,17 @@ app.post('/user/save', (req, res) => {
 });
 
 app.post('/user/search', (req, res) => {
-  userTable.find({id: {$in: req.body['idList']}}, (err, docs) => {
+  const userSearchDto:UserSearchDto = new UserSearchDto(req.body)
+  let predicate = {};
+  if (userSearchDto.idList.length > 0) {
+    predicate = {...predicate, id: {$in: userSearchDto.idList}};
+  }
+  userTable.find(predicate, (err, docs) => {
     res.json(docs)
   });
 });
+
+
 
 app.post('/post/save', (req, res) => {
   postTable.insert(req.body, (err, newDoc) => {
@@ -36,9 +44,9 @@ app.post('/post/search', (req, res) => {
   const postSearchDto: PostSearchDto = new PostSearchDto(req.body);
   let predicate = {};
   if (postSearchDto.idList.length > 0) {
-    predicate = {...predicate, id: {$in: req.body['idList']}};
+    predicate = {...predicate, id: {$in: postSearchDto.idList}};
   }
-  if (req.body['userId']) {
+  if (postSearchDto.userId) {
     predicate = {...predicate, "userDto.id": req.body['userId']};
   }
   postTable.find(predicate, (err, docs) => {
