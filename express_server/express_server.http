@@ -19,7 +19,7 @@ Content-Type: application/json
 
 
 ###
-POST http://localhost:7000/post/save
+POST http://localhost:7001/post/save
 Content-Type: application/json
 
 {
@@ -33,7 +33,7 @@ Content-Type: application/json
 }
 
 ###
-POST http://localhost:7000/post/search
+POST http://localhost:7001/post/search
 Content-Type: application/json
 
 {
@@ -42,7 +42,7 @@ Content-Type: application/json
 }
 
 ###
-POST http://localhost:7000/comment/save
+POST http://localhost:7001/comment/save
 Content-Type: application/json
 
 {
@@ -59,9 +59,29 @@ Content-Type: application/json
 }
 
 ###
-POST http://localhost:7000/comment/search
+POST http://localhost:7001/comment/search
 Content-Type: application/json
 
 {
   "idList": [1000,1001,1002,1003]
 }
+
+###
+POST http://localhost:7001/postLike/save
+Content-Type: application/json
+
+{
+  "id": 1003,
+  "body": "comment 1003",
+  "likeCount": 0,
+  "userDto": {
+    "id": 3
+  },
+  "postDto": {
+    "id": 100
+  }
+
+}
+
+
+

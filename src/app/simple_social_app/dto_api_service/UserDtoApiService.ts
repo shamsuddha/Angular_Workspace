@@ -2,7 +2,9 @@ import {Injectable} from "@angular/core";
 import {Observable} from "rxjs";
 import {UserDto} from "../dto/UserDto";
 
-@Injectable()
+@Injectable({
+  providedIn: 'root'
+})
 export class UserDtoApiService {
 
   constructor() {

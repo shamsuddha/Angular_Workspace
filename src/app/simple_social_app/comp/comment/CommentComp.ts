@@ -9,6 +9,9 @@ import {CommentSearchDto} from "../../dto/request/CommentSearchDto";
   styleUrls: ['./CommentComp.scss'],
 })
 export class CommentComp implements OnInit {
+saveComment() {
+throw new Error('Method not implemented.');
+}
 
   @Input() postDto!: PostDto;
 

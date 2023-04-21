@@ -23,9 +23,9 @@
       Post List:
 
           <div *ngFor="let postDto of postDtoList">
-            <div scope="row">{{postDto.id}}</div>
-            <div>{{postDto.body}}</div>
-            <div>{{postDto.userDto?.name}}</div>
+            <div scope="row">Post Id: {{postDto.id}}</div>
+            <div>Body: {{postDto.body}}</div>
+            <div>Posted By: {{postDto.userDto?.name}}</div>
             <div>{{postDto.postLikeDtoList}}</div>
             <div>
               <button type="button" class="btn btn-primary" style="margin: 5px;" (click)="onShowClick(postDto)">Show</button>

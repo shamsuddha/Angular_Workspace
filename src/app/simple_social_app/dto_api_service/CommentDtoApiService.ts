@@ -4,7 +4,9 @@ import {HttpClient} from "@angular/common/http";
 import {CommentSearchDto} from "../dto/request/CommentSearchDto";
 import {CommentDto} from "../dto/CommentDto";
 
-@Injectable()
+@Injectable({
+  providedIn: 'root'
+})
 export class CommentDtoApiService {
 
   constructor(private httpClient: HttpClient) {

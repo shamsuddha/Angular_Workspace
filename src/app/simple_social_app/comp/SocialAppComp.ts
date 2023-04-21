@@ -1,15 +1,15 @@
-import {PostLikeDtoApiService} from './../dto_api_service/PostLikeDtoApiService';
-import {tap} from 'rxjs';
-import {filter} from 'rxjs';
-import {PostDto} from './../dto/PostDto';
-import {Component, OnInit} from "@angular/core";
-import {FormControl, FormGroup, Validators} from '@angular/forms';
-import {PostDtoApiService} from "../dto_api_service/PostDtoApiService";
-import {HttpClient} from "@angular/common/http";
-import {UserDto} from '../dto/UserDto';
-import {CommentDto} from '../dto/CommentDto';
-import {PostLikeDto} from '../dto/PostLikeDto';
-import {PostSearchDto} from "../dto/request/PostSearchDto";
+import { PostLikeDtoApiService } from './../dto_api_service/PostLikeDtoApiService';
+import { tap } from 'rxjs';
+import { filter } from 'rxjs';
+import { PostDto } from './../dto/PostDto';
+import { Component, OnInit } from "@angular/core";
+import { FormControl, FormGroup, Validators } from '@angular/forms';
+import { PostDtoApiService } from "../dto_api_service/PostDtoApiService";
+import { HttpClient } from "@angular/common/http";
+import { UserDto } from '../dto/UserDto';
+import { CommentDto } from '../dto/CommentDto';
+import { PostLikeDto } from '../dto/PostLikeDto';
+import { PostSearchDto } from "../dto/request/PostSearchDto";
 
 @Component({
   selector: 'SocialAppComp',
@@ -22,7 +22,7 @@ export class SocialAppComp implements OnInit {
 
   postDtoFg = new FormGroup({
     body: new FormControl<string | null>(null, [Validators.required,
-      Validators.maxLength(300), Validators.minLength(3)]),
+    Validators.maxLength(300), Validators.minLength(3)]),
   });
   commentDtoFg = new FormGroup({
     body: new FormControl<string | null>(null),
@@ -43,7 +43,7 @@ export class SocialAppComp implements OnInit {
   savePost() {
     console.log(this.postDtoFg.value);
     const postDto = new PostDto(this.postDtoFg.value)
-    postDto.userDto = new UserDto({id: 2, name: "name 2"});
+    postDto.userDto = new UserDto({ id: 2, name: "name 2" });
     this.postDtoApiService.savePostDto(postDto)
       .subscribe((e) => {
         this.searchPost();
@@ -52,7 +52,7 @@ export class SocialAppComp implements OnInit {
 
   postLikeClicked(postDto: PostDto) {
     const postLikeDto = new PostLikeDto()
-    postLikeDto.userDto = new UserDto({id: 2, name: "name 2"});
+    postLikeDto.userDto = new UserDto({ id: 2, name: "name 2" });
     postLikeDto.postDto = new PostDto(postDto);
     this.postLikeDtoApiService.savePostLikeDto(postLikeDto)
       .subscribe((e) => {
@@ -65,7 +65,7 @@ export class SocialAppComp implements OnInit {
   }
 
   searchPost() {
-    this.postDtoApiService.search(new PostSearchDto({userId:2})).subscribe((e: Array<PostDto>) => {
+    this.postDtoApiService.search(new PostSearchDto({ userId: 1 })).subscribe((e: Array<PostDto>) => {
       this.postDtoList = e;
     })
   }
@@ -77,7 +77,7 @@ export class SocialAppComp implements OnInit {
   onShowClick(postDto: PostDto) {
     // console.log(postDto)
     // let singlePost : PostDto = ;
-    this.postDtoApiService.search(new PostSearchDto({userId:2}))
+    this.postDtoApiService.search(new PostSearchDto({ userId: 2 }))
       .pipe(
         filter((e: Array<PostDto>) => {
           // console.log(postDto.id);
@@ -91,8 +91,8 @@ export class SocialAppComp implements OnInit {
         tap((e) => console.log(e))
       )
       .subscribe((e: Array<PostDto>) => {
-          this.postDtoList = e;
-        }
+        this.postDtoList = e;
+      }
       )
   }
 }
