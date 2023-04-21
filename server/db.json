@@ -101,5 +101,186 @@
       "thanaName": null,
       "gender": null
     }
+  ],
+  "post": [
+    {
+      "id": 1,
+      "body": "sdf sdf dsfsdfsdf ",
+      "likeCount": null,
+      "postLikeDtoList": [],
+      "userDto": {
+        "id": 2,
+        "name": "name 2",
+        "postDtoList": []
+      },
+      "commentDtoList": []
+    },
+    {
+      "id": 2,
+      "body": "sf sdfds sdf sdf dsfsdfsdf f dsf sdf sd ",
+      "likeCount": null,
+      "postLikeDtoList": [],
+      "userDto": {
+        "id": 2,
+        "name": "name 2",
+        "postDtoList": []
+      },
+      "commentDtoList": []
+    },
+    {
+      "id": 3,
+      "body": "sdf dsf sf sd ",
+      "likeCount": null,
+      "postLikeDtoList": [],
+      "userDto": {
+        "id": 2,
+        "name": "name 2",
+        "postDtoList": []
+      },
+      "commentDtoList": []
+    }
+  ],
+  "comment": [],
+  "postLike": [
+    {
+      "id": 1,
+      "userDto": {
+        "id": 2,
+        "name": "name 2",
+        "postDtoList": []
+      },
+      "postDto": {
+        "id": 2,
+        "body": "sf sdfds sdf sdf dsfsdfsdf f dsf sdf sd ",
+        "likeCount": null,
+        "postLikeDtoList": [],
+        "userDto": {
+          "id": 2,
+          "name": "name 2",
+          "postDtoList": []
+        },
+        "commentDtoList": []
+      }
+    },
+    {
+      "id": 2,
+      "userDto": {
+        "id": 2,
+        "name": "name 2",
+        "postDtoList": []
+      },
+      "postDto": {
+        "id": 2,
+        "body": "sf sdfds sdf sdf dsfsdfsdf f dsf sdf sd ",
+        "likeCount": null,
+        "postLikeDtoList": [],
+        "userDto": {
+          "id": 2,
+          "name": "name 2",
+          "postDtoList": []
+        },
+        "commentDtoList": []
+      }
+    },
+    {
+      "id": 3,
+      "userDto": {
+        "id": 2,
+        "name": "name 2",
+        "postDtoList": []
+      },
+      "postDto": {
+        "id": 1,
+        "body": "sdf sdf dsfsdfsdf ",
+        "likeCount": null,
+        "postLikeDtoList": [],
+        "userDto": {
+          "id": 2,
+          "name": "name 2",
+          "postDtoList": []
+        },
+        "commentDtoList": []
+      }
+    },
+    {
+      "id": 4,
+      "userDto": {
+        "id": 2,
+        "name": "name 2",
+        "postDtoList": []
+      },
+      "postDto": {
+        "id": 2,
+        "body": "sf sdfds sdf sdf dsfsdfsdf f dsf sdf sd ",
+        "likeCount": null,
+        "postLikeDtoList": [],
+        "userDto": {
+          "id": 2,
+          "name": "name 2",
+          "postDtoList": []
+        },
+        "commentDtoList": []
+      }
+    },
+    {
+      "id": 5,
+      "userDto": {
+        "id": 2,
+        "name": "name 2",
+        "postDtoList": []
+      },
+      "postDto": {
+        "id": 2,
+        "body": "sf sdfds sdf sdf dsfsdfsdf f dsf sdf sd ",
+        "likeCount": null,
+        "postLikeDtoList": [],
+        "userDto": {
+          "id": 2,
+          "name": "name 2",
+          "postDtoList": []
+        },
+        "commentDtoList": []
+      }
+    },
+    {
+      "id": 6,
+      "userDto": {
+        "id": 2,
+        "name": "name 2",
+        "postDtoList": []
+      },
+      "postDto": {
+        "id": 1,
+        "body": "sdf sdf dsfsdfsdf ",
+        "likeCount": null,
+        "postLikeDtoList": [],
+        "userDto": {
+          "id": 2,
+          "name": "name 2",
+          "postDtoList": []
+        },
+        "commentDtoList": []
+      }
+    },
+    {
+      "id": 7,
+      "userDto": {
+        "id": 2,
+        "name": "name 2",
+        "postDtoList": []
+      },
+      "postDto": {
+        "id": 3,
+        "body": "sdf dsf sf sd ",
+        "likeCount": null,
+        "postLikeDtoList": [],
+        "userDto": {
+          "id": 2,
+          "name": "name 2",
+          "postDtoList": []
+        },
+        "commentDtoList": []
+      }
+    }
   ]
 }

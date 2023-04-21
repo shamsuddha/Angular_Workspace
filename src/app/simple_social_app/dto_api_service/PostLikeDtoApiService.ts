@@ -1,9 +1,17 @@
+import { HttpClient } from "@angular/common/http";
 import {Injectable} from "@angular/core";
-
-@Injectable()
+import { Observable } from "rxjs";
+import { PostLikeDto } from "../dto/PostLikeDto";
+@Injectable({
+  providedIn: 'root'
+})
 export class PostLikeDtoApiService {
 
-  constructor() {
+  constructor(private httpClient: HttpClient) { }
+
+  savePostLikeDto(postLikeDto: PostLikeDto): Observable<PostLikeDto> {
+   
+    return this.httpClient.post<PostLikeDto>("http://localhost:3000/postLike", postLikeDto);
   }
 
 }
