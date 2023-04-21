@@ -138,6 +138,18 @@
         "postDtoList": []
       },
       "commentDtoList": []
+    },
+    {
+      "id": 4,
+      "body": "new post 1",
+      "likeCount": null,
+      "postLikeDtoList": [],
+      "userDto": {
+        "id": 2,
+        "name": "name 2",
+        "postDtoList": []
+      },
+      "commentDtoList": []
     }
   ],
   "comment": [],
@@ -272,6 +284,26 @@
       "postDto": {
         "id": 3,
         "body": "sdf dsf sf sd ",
+        "likeCount": null,
+        "postLikeDtoList": [],
+        "userDto": {
+          "id": 2,
+          "name": "name 2",
+          "postDtoList": []
+        },
+        "commentDtoList": []
+      }
+    },
+    {
+      "id": 8,
+      "userDto": {
+        "id": 2,
+        "name": "name 2",
+        "postDtoList": []
+      },
+      "postDto": {
+        "id": 4,
+        "body": "new post 1",
         "likeCount": null,
         "postLikeDtoList": [],
         "userDto": {

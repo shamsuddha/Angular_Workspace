@@ -1,0 +1,67 @@
+
+###
+POST http://localhost:7001/user/save
+Content-Type: application/json
+
+{
+  "id": 2,
+  "name": "user 2",
+  "postDtoList": []
+}
+
+###
+POST http://localhost:7001/user/search
+Content-Type: application/json
+
+{
+  "idList": [1,2,3]
+}
+
+
+###
+POST http://localhost:7000/post/save
+Content-Type: application/json
+
+{
+  "id": 201,
+  "body": "post 201",
+  "likeCount": 0,
+  "postLikeDtoList": [],
+  "userDto": {
+    "id": 2
+  }
+}
+
+###
+POST http://localhost:7000/post/search
+Content-Type: application/json
+
+{
+  "idList":[],
+  "userId": 2
+}
+
+###
+POST http://localhost:7000/comment/save
+Content-Type: application/json
+
+{
+  "id": 1003,
+  "body": "comment 1003",
+  "likeCount": 0,
+  "userDto": {
+    "id": 3
+  },
+  "postDto": {
+    "id": 100
+  }
+
+}
+
+###
+POST http://localhost:7000/comment/search
+Content-Type: application/json
+
+{
+  "idList": [1000,1001,1002,1003]
+}

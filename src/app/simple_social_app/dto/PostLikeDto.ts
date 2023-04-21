@@ -7,6 +7,8 @@ export class PostLikeDto {
   userDto : UserDto | null = null;
   postDto : PostDto | null = null;
 
+  createdDateTime: string | null = null;
+
   constructor(o?: Partial<PostLikeDto>) {
     Object.assign(this, o);
   }

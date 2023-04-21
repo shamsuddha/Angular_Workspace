@@ -1,17 +1,16 @@
 <div class="container-fluid">
   <div class="row justify-content-md-center">
-    <div class="col col-lg-12">
-      <h1 class="text-center">Simple social app</h1>
+    <div class="col col-md-12">
+      <h5 class="text-center">Simple social app</h5>
       <hr />
     </div>
   </div>
   <div class="row">
-    <div class="col col-lg-6">
-      <h2 class="text-center">Add new Post</h2>
-      <hr />
+    <div class="col col-md-12">
+      Add Post :
       <form [formGroup]="postDtoFg">
-        <div class="form-group" style="margin: 5px;">
-          <textarea class="form-control" id="body" rows="3" formControlName="body">add your post</textarea>
+        <div class="form-group">
+          <textarea class="form-control" id="body" rows="3" formControlName="body">Add post</textarea>
         </div>
         <div class="form-group">
           <button class="btn btn-primary" type="button" (click)="savePost()" style="margin:5px;">Submit</button>
@@ -20,77 +19,26 @@
         </div>
       </form>
       <hr />
-      <!-- {{postDtoFg.value | json}} -->
-      <h2 class="text-center">Post List</h2>
-      <table class="table table-striped text-center">
-        <thead class="thead-dark">
-          <tr>
-            <th scope="col">#</th>
-            <th scope="col">Body</th>
-            <th scope="col">Posted By</th>
-            <th scope="col">Likes</th>
-            <th scope="col">Action</th>
-          </tr>
-        </thead>
-        <tbody>
-          <tr *ngFor="let postDto of postDtoList">
-            <th scope="row">{{postDto.id}}</th>
-            <td>{{postDto.body}}</td>
-            <td>{{postDto.userDto?.name}}</td>
-            <td>{{postDto.postLikeDtoList}}</td>
-            <td>
-              <button type="button" class="btn btn-primary btn-lg" style="margin: 5px;" (click)="onShowClick(postDto)">Show</button>
-              <button type="button" class="btn btn-secondary btn-lg" style="margin: 5px;">Edit</button>
-              <button type="button" class="btn btn-danger btn-lg" style="margin: 5px;">Delete</button>
-              <button type="button" class="btn btn-primary btn-lg" style="margin: 5px;" (click)="postLikeClicked(postDto)">Like</button>
-            </td>
-          </tr>
-        </tbody>
-      </table>
+       {{postDtoFg.value | json}}
+      Post List:
+
+          <div *ngFor="let postDto of postDtoList">
+            <div scope="row">{{postDto.id}}</div>
+            <div>{{postDto.body}}</div>
+            <div>{{postDto.userDto?.name}}</div>
+            <div>{{postDto.postLikeDtoList}}</div>
+            <div>
+              <button type="button" class="btn btn-primary" style="margin: 5px;" (click)="onShowClick(postDto)">Show</button>
+              <button type="button" class="btn btn-secondary" style="margin: 5px;">Edit</button>
+              <button type="button" class="btn btn-danger" style="margin: 5px;">Delete</button>
+              <button type="button" class="btn btn-primary" style="margin: 5px;" (click)="postLikeClicked(postDto)">Like</button>
+            </div>
+
+            <CommentComp [postDto]="postDto"></CommentComp>
+          </div>
+
     </div>
-    <div class="col col-lg-6">
-      <h2 class="text-center">Add new Comment</h2>
-      <hr />
-      <form>
-        <div class="form-group" style="margin: 5px;">
-          <textarea class="form-control" id="exampleFormControlTextarea1" rows="3">Add new comment</textarea>
-        </div>
-        <div class="form-group">
-          <button type="button" class="btn btn-primary btn-lg" style="margin: 5px;">Submit</button>
-        </div>
-      </form>
-      <hr />
-      <h2 class="text-center">Post comments</h2>
-      <table class="table table-striped">
-        <thead class="thead-dark">
-          <tr>
-            <th scope="col">#</th>
-            <th scope="col">Body</th>
-            <th scope="col">Likes</th>
-            <th scope="col">Commented By</th>
-            <th scope="col">Action</th>
-          </tr>
-        </thead>
-        <tbody>
-          <tr>
-            <th scope="row">1</th>
-            <td>Marsdfsdfsdfsdfsdff sk</td>
-            <td>1111</td>
-            <td>User Name</td>
-            <td><button type="button" class="btn btn-primary btn-lg" style="margin: 5px;">Reply</button>
-              <button type="button" class="btn btn-secondary btn-lg" style="margin: 5px;">Edit</button>
-              <button type="button" class="btn btn-danger btn-lg" style="margin: 5px;">Delete</button>
-            </td>
-          </tr>
-        </tbody>
-      </table>
-    </div>
+
   </div>
 </div>
-<!-- Post :<textarea></textarea>
-<button>Like</button>
-<hr/>
-Comment :<textarea></textarea>
-<button>Like</button>
-previous comments:
-previous post list: -->
+

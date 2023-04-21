@@ -12,7 +12,9 @@ export class PostDto {
 
   userDto: UserDto | null = null;
 
-  commentDtoList:  Array<CommentDto> = [];
+  commentDtoList: Array<CommentDto> = [];
+
+  createdDateTime: string | null = null;  // yyyy-MM-dd HH:mm:ss
 
   constructor(o?: Partial<PostDto>) {
     Object.assign(this, o);

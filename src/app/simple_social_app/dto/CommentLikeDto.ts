@@ -7,6 +7,8 @@ export class CommentLikeDto {
   userDto: UserDto | null = null;
   commentDto: CommentDto | null = null;
 
+  createdDateTime: string | null = null;
+
   constructor(o?: Partial<CommentLikeDto>) {
     Object.assign(this, o);
   }

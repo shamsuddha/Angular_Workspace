@@ -1,5 +1,6 @@
 import {UserDto} from "./UserDto";
 import {CommentLikeDto} from "./CommentLikeDto";
+import {PostDto} from "./PostDto";
 
 export class CommentDto {
 
@@ -12,7 +13,10 @@ export class CommentDto {
 
   userDto: UserDto | null = null;
 
-  commentDtoList:  Array<CommentDto> = [];
+  postDto: PostDto | null = null;
+  commentDtoList: Array<CommentDto> = [];
+
+  createdDateTime: string | null = null;
 
   constructor(o?: Partial<CommentDto>) {
     Object.assign(this, o);
