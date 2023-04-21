@@ -1,7 +1,8 @@
-import express, {Express, Request, Response} from 'express';
+import express, {Express} from 'express';
 import dotenv from 'dotenv';
 import cors from 'cors';
 import Datastore from 'nedb';
+import {PostSearchDto} from "./dto/request/PostSearchDto";
 
 const userTable = new Datastore({filename: 'db/user.db', autoload: true});
 const postTable = new Datastore({filename: 'db/post.db', autoload: true});
@@ -20,7 +21,6 @@ app.post('/user/save', (req, res) => {
 });
 
 app.post('/user/search', (req, res) => {
-  console.log(req.body)
   userTable.find({id: {$in: req.body['idList']}}, (err, docs) => {
     res.json(docs)
   });
@@ -33,10 +33,11 @@ app.post('/post/save', (req, res) => {
 });
 
 app.post('/post/search', (req, res) => {
+  const postSearchDto: PostSearchDto = new PostSearchDto(req.body);
   let predicate = {};
-  /*if (req.body['idList'] && req.body['idList'] !== []) {
+  if (postSearchDto.idList.length > 0) {
     predicate = {...predicate, id: {$in: req.body['idList']}};
-  }*/
+  }
   if (req.body['userId']) {
     predicate = {...predicate, "userDto.id": req.body['userId']};
   }
@@ -57,15 +58,6 @@ app.post('/comment/search', (req, res) => {
     res.json(docs)
   });
 })
-
-
-
-
-
-
-
-
-
 
 
 app.listen(port, () => {
