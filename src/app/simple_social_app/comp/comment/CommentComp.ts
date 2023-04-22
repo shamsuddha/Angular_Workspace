@@ -25,14 +25,24 @@ export class CommentComp implements OnInit {
   }
 
   ngOnInit(): void {
-    this.commentDtoApiService.search(new CommentSearchDto({idList: []}));
+    this.search();
+  }
+
+  search() {
+    this.commentDtoApiService.search(new CommentSearchDto({postId: this.postDto.id}))
+      .subscribe((e: Array<CommentDto>) => {
+        this.commentDtoList = e;
+      });
   }
 
   saveComment() {
     const commentDto: CommentDto = new CommentDto(this.commentDtoFg.value);
     commentDto.userDto = new UserDto({id: 2, name: "name 2"});
     commentDto.postDto = this.postDto;
-    this.commentDtoApiService.save(commentDto).subscribe(e => e);
+    this.commentDtoApiService.save(commentDto).subscribe(e => {
+      this.search();
+    });
+
   }
 
 }

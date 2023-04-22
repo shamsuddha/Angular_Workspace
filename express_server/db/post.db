@@ -1,0 +1,2 @@
+{"id":1,"body":"post 1","likeCount":null,"postLikeDtoList":[],"userDto":{"id":2,"name":"name 2","postDtoList":[]},"commentDtoList":[],"createdDateTime":null,"_id":"2SBkuQmbsd1Gyz3B"}
+{"id":2,"body":"post 2","likeCount":null,"postLikeDtoList":[],"userDto":{"id":2,"name":"name 2","postDtoList":[]},"commentDtoList":[],"createdDateTime":null,"_id":"EsLJK0OwQoKfpffF"}

@@ -6,7 +6,7 @@ import {PostSearchDto} from "./dto/request/PostSearchDto";
 import {UserSearchDto} from "./dto/request/UserSearchDto";
 import {CommentSearchDto} from "./dto/request/CommentSearchDto";
 import {CommentDto} from "./dto/CommentDto";
-import { PostDto } from './dto/PostDto';
+import {PostDto} from './dto/PostDto';
 
 const userTable = new Datastore({filename: 'db/user.db', autoload: true});
 const postTable = new Datastore({filename: 'db/post.db', autoload: true});
@@ -45,8 +45,7 @@ app.post('/post/save', (req, res) => {
         postTable.insert(postDto, (err, newDoc) => {
           res.json(newDoc);
         });
-      }
-      else {
+      } else {
         postDto.id = 1;
         postTable.insert(postDto, (err, newDoc) => {
           res.json(newDoc);
@@ -78,8 +77,7 @@ app.post('/comment/save', (req, res) => {
         commentTable.insert(commentDto, (err, newDoc) => {
           res.json(newDoc);
         });
-      }
-      else {
+      } else {
         commentDto.id = 1;
         commentTable.insert(commentDto, (err, newDoc) => {
           res.json(newDoc);
@@ -96,9 +94,9 @@ app.post('/comment/search', (req, res) => {
     predicate = {...predicate, id: {$in: commentSearchDto.idList}};
   }
   if (commentSearchDto.postId) {
-    predicate = {...predicate, "userDto.id": req.body['userId']};
+    predicate = {...predicate, "postDto.id": commentSearchDto.postId};
   }
-  commentTable.find({id: {$in: req.body['idList']}}, (err, docs) => {
+  commentTable.find(predicate, (err, docs) => {
     res.json(docs)
   });
 })
