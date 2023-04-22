@@ -9,9 +9,7 @@ import {CommentSearchDto} from "../../dto/request/CommentSearchDto";
   styleUrls: ['./CommentComp.scss'],
 })
 export class CommentComp implements OnInit {
-saveComment() {
-throw new Error('Method not implemented.');
-}
+
 
   @Input() postDto!: PostDto;
 
@@ -22,5 +20,9 @@ throw new Error('Method not implemented.');
   ngOnInit(): void {
     this.commentDtoApiService.search(new CommentSearchDto({idList: []}));
   }
+
+  saveComment() {
+    throw new Error('Method not implemented.');
+    }
 
 }

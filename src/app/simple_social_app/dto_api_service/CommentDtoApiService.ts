@@ -12,12 +12,12 @@ export class CommentDtoApiService {
   constructor(private httpClient: HttpClient) {
   }
 
-  savePostDto(commentDto: CommentDto): Observable<CommentDto> {
-    return this.httpClient.post<CommentDto>("http://localhost:7000/comment/save", commentDto);
+  saveCommentDto(commentDto: CommentDto): Observable<CommentDto> {
+    return this.httpClient.post<CommentDto>("http://localhost:7001/comment/save", commentDto);
   }
 
   search(commentSearchDto: CommentSearchDto): Observable<Array<CommentDto>> {
-    return this.httpClient.post<Array<CommentDto>>("http://localhost:7000/comment/search", commentSearchDto);
+    return this.httpClient.post<Array<CommentDto>>("http://localhost:7001/comment/search", commentSearchDto);
   }
 
 }
