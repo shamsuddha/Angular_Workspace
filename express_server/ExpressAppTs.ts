@@ -6,6 +6,7 @@ import {PostSearchDto} from "./dto/request/PostSearchDto";
 import {UserSearchDto} from "./dto/request/UserSearchDto";
 import {CommentSearchDto} from "./dto/request/CommentSearchDto";
 import {CommentDto} from "./dto/CommentDto";
+import { PostDto } from './dto/PostDto';
 
 const userTable = new Datastore({filename: 'db/user.db', autoload: true});
 const postTable = new Datastore({filename: 'db/post.db', autoload: true});
@@ -36,9 +37,22 @@ app.post('/user/search', (req, res) => {
 
 
 app.post('/post/save', (req, res) => {
-  postTable.insert(req.body, (err, newDoc) => {
-    res.json(newDoc)
-  });
+  const postDto: PostDto = new PostDto(req.body);
+  postTable.find({}).sort({id: -1})
+    .exec((err, docs) => {
+      if (docs && docs.length > 0) {
+        postDto.id = docs[0]['id'] + 1;
+        postTable.insert(postDto, (err, newDoc) => {
+          res.json(newDoc);
+        });
+      }
+      else {
+        postDto.id = 1;
+        postTable.insert(postDto, (err, newDoc) => {
+          res.json(newDoc);
+        });
+      }
+    });
 });
 
 app.post('/post/search', (req, res) => {
@@ -57,7 +71,6 @@ app.post('/post/search', (req, res) => {
 
 app.post('/comment/save', (req, res) => {
   const commentDto: CommentDto = new CommentDto(req.body);
-
   commentTable.find({}).sort({id: -1})
     .exec((err, docs) => {
       if (docs && docs.length > 0) {
