@@ -1,36 +1,25 @@
 <div class="col col-lg-6">
   Comment :
-  <form>
+  <form [formGroup]="commentDtoFg">
     <div class="form-group" style="margin: 5px;">
-      <textarea class="form-control" id="exampleFormControlTextarea1" rows="3">Add new comment</textarea>
+      <textarea class="form-control" formControlName="body" rows="3"
+                placeholder="Add comment"></textarea>
     </div>
     <div class="form-group">
-      <button type="button" class="btn btn-primary " style="margin: 5px;" (click)="saveComment()">Comment</button>
+      <button type="button" class="btn btn-primary " style="margin: 5px;"
+              (click)="saveComment()">Comment
+      </button>
     </div>
   </form>
-  <hr />
-  <p>Previous Comments</p>
-  <table class="table table-striped">
-    <thead class="thead-dark">
-    <tr>
-      <th scope="col">#</th>
-      <th scope="col">Body</th>
-      <th scope="col">Likes</th>
-      <th scope="col">Commented By</th>
-      <th scope="col">Action</th>
-    </tr>
-    </thead>
-    <tbody>
-    <tr>
-      <th scope="row">1</th>
-      <td>Marsdfsdfsdfsdfsdff sk</td>
-      <td>1111</td>
-      <td>User Name</td>
-      <td><button type="button" class="btn btn-primary " style="margin: 5px;">Reply</button>
-        <button type="button" class="btn btn-secondary " style="margin: 5px;">Edit</button>
-        <button type="button" class="btn btn-danger " style="margin: 5px;">Delete</button>
-      </td>
-    </tr>
-    </tbody>
-  </table>
+
+  <div *ngFor="let commonDto of commentDtoList">
+    {{commonDto.id}}
+    {{commonDto.body}}
+    <button type="button" class="btn btn-primary mx-3" >Reply</button>
+    <button type="button" class="btn btn-secondary mx-3" >Edit</button>
+    <button type="button" class="btn btn-danger mx-3" >Delete</button>
+
+  </div>
+
+
 </div>

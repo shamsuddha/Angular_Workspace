@@ -2,7 +2,7 @@
   <div class="row justify-content-md-center">
     <div class="col col-md-12">
       <h5 class="text-center">Simple social app</h5>
-      <hr />
+      <hr/>
     </div>
   </div>
   <div class="row">
@@ -14,28 +14,28 @@
         </div>
         <div class="form-group">
           <button class="btn btn-primary" type="button" (click)="savePost()" style="margin:5px;">Submit</button>
-        <!-- <button class="btn btn-primary" type="button" (click)="update()">update</button> -->
-        <button class="btn btn-primary" type="button" (click)="reset()" style="margin:5px;">reset</button>
+          <!-- <button class="btn btn-primary" type="button" (click)="update()">update</button> -->
+          <button class="btn btn-primary" type="button" (click)="reset()" style="margin:5px;">reset</button>
         </div>
       </form>
-      <hr />
-       {{postDtoFg.value | json}}
-      Post List:
+      <hr/> <h5>Post List:</h5><hr/> <hr/>
+      <!--{{postDtoFg.value | json}}-->
 
-          <div *ngFor="let postDto of postDtoList">
-            <div scope="row">Post Id: {{postDto.id}}</div>
-            <div>Body: {{postDto.body}}</div>
-            <div>Posted By: {{postDto.userDto?.name}}</div>
-            <div>{{postDto.postLikeDtoList}}</div>
-            <div>
-              <button type="button" class="btn btn-primary" style="margin: 5px;" (click)="onShowClick(postDto)">Show</button>
-              <button type="button" class="btn btn-secondary" style="margin: 5px;">Edit</button>
-              <button type="button" class="btn btn-danger" style="margin: 5px;">Delete</button>
-              <button type="button" class="btn btn-primary" style="margin: 5px;" (click)="postLikeClicked(postDto)">Like</button>
-            </div>
-
-            <CommentComp [postDto]="postDto"></CommentComp>
-          </div>
+      <div *ngFor="let postDto of postDtoList">
+        <div> {{postDto.id}} :  {{postDto.body}}</div>
+        <div>Posted By: {{postDto.userDto?.name}}</div>
+        <!--<div>{{postDto.postLikeDtoList}}</div>-->
+        <div>
+          <button type="button" class="btn btn-primary" style="margin: 5px;" (click)="onShowClick(postDto)">Show
+          </button>
+          <button type="button" class="btn btn-secondary" style="margin: 5px;">Edit</button>
+          <button type="button" class="btn btn-danger" style="margin: 5px;">Delete</button>
+          <button type="button" class="btn btn-primary" style="margin: 5px;" (click)="postLikeClicked(postDto)">Like
+          </button>
+        </div>
+        <div class="px-5"><CommentComp [postDto]="postDto"></CommentComp></div>
+        <hr/>
+      </div>
 
     </div>
 

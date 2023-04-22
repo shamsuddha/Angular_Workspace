@@ -4,6 +4,7 @@ exports.CommentSearchDto = void 0;
 class CommentSearchDto {
     constructor(o) {
         this.idList = [];
+        this.postId = null;
         Object.assign(this, o);
     }
 }

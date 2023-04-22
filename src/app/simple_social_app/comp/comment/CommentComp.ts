@@ -2,6 +2,9 @@ import {Component, Input, OnInit} from "@angular/core";
 import {PostDto} from "../../dto/PostDto";
 import {CommentDtoApiService} from "../../dto_api_service/CommentDtoApiService";
 import {CommentSearchDto} from "../../dto/request/CommentSearchDto";
+import {CommentDto} from "../../dto/CommentDto";
+import {FormControl, FormGroup} from "@angular/forms";
+import {UserDto} from "../../../../../express_server/dto/UserDto";
 
 @Component({
   selector: 'CommentComp',
@@ -10,11 +13,15 @@ import {CommentSearchDto} from "../../dto/request/CommentSearchDto";
 })
 export class CommentComp implements OnInit {
 
-
   @Input() postDto!: PostDto;
+  commentDtoList!: Array<CommentDto>;
 
-  constructor(private commentDtoApiService:CommentDtoApiService) {
+  commentDtoFg = new FormGroup({
+    id: new FormControl<number | null>(null),
+    body: new FormControl<string | null>(null),
+  })
 
+  constructor(private commentDtoApiService: CommentDtoApiService) {
   }
 
   ngOnInit(): void {
@@ -22,7 +29,10 @@ export class CommentComp implements OnInit {
   }
 
   saveComment() {
-    throw new Error('Method not implemented.');
-    }
+    const commentDto: CommentDto = new CommentDto(this.commentDtoFg.value);
+    commentDto.userDto = new UserDto({id: 2, name: "name 2"});
+    commentDto.postDto = this.postDto;
+    this.commentDtoApiService.save(commentDto).subscribe(e => e);
+  }
 
 }

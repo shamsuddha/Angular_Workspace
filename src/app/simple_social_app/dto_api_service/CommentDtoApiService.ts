@@ -12,7 +12,7 @@ export class CommentDtoApiService {
   constructor(private httpClient: HttpClient) {
   }
 
-  saveCommentDto(commentDto: CommentDto): Observable<CommentDto> {
+  save(commentDto: CommentDto): Observable<CommentDto> {
     return this.httpClient.post<CommentDto>("http://localhost:7001/comment/save", commentDto);
   }
 

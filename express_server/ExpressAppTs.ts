@@ -4,6 +4,8 @@ import cors from 'cors';
 import Datastore from 'nedb';
 import {PostSearchDto} from "./dto/request/PostSearchDto";
 import {UserSearchDto} from "./dto/request/UserSearchDto";
+import {CommentSearchDto} from "./dto/request/CommentSearchDto";
+import {CommentDto} from "./dto/CommentDto";
 
 const userTable = new Datastore({filename: 'db/user.db', autoload: true});
 const postTable = new Datastore({filename: 'db/post.db', autoload: true});
@@ -22,7 +24,7 @@ app.post('/user/save', (req, res) => {
 });
 
 app.post('/user/search', (req, res) => {
-  const userSearchDto:UserSearchDto = new UserSearchDto(req.body)
+  const userSearchDto: UserSearchDto = new UserSearchDto(req.body)
   let predicate = {};
   if (userSearchDto.idList.length > 0) {
     predicate = {...predicate, id: {$in: userSearchDto.idList}};
@@ -31,7 +33,6 @@ app.post('/user/search', (req, res) => {
     res.json(docs)
   });
 });
-
 
 
 app.post('/post/save', (req, res) => {
@@ -55,13 +56,35 @@ app.post('/post/search', (req, res) => {
 });
 
 app.post('/comment/save', (req, res) => {
-  commentTable.insert(req.body, (err, newDoc) => {
-    res.json(newDoc);
-  });
+  const commentDto: CommentDto = new CommentDto(req.body);
+
+  commentTable.find({}).sort({id: -1})
+    .exec((err, docs) => {
+      if (docs && docs.length > 0) {
+        commentDto.id = docs[0]['id'] + 1;
+        commentTable.insert(commentDto, (err, newDoc) => {
+          res.json(newDoc);
+        });
+      }
+      else {
+        commentDto.id = 1;
+        commentTable.insert(commentDto, (err, newDoc) => {
+          res.json(newDoc);
+        });
+      }
+    });
 });
 
 app.post('/comment/search', (req, res) => {
-  console.log(req.body)
+
+  const commentSearchDto: CommentSearchDto = new CommentSearchDto(req.body);
+  let predicate = {};
+  if (commentSearchDto.idList.length > 0) {
+    predicate = {...predicate, id: {$in: commentSearchDto.idList}};
+  }
+  if (commentSearchDto.postId) {
+    predicate = {...predicate, "userDto.id": req.body['userId']};
+  }
   commentTable.find({id: {$in: req.body['idList']}}, (err, docs) => {
     res.json(docs)
   });

@@ -24,9 +24,7 @@ export class SocialAppComp implements OnInit {
     body: new FormControl<string | null>(null, [Validators.required,
     Validators.maxLength(300), Validators.minLength(3)]),
   });
-  commentDtoFg = new FormGroup({
-    body: new FormControl<string | null>(null),
-  })
+
   postDtoList: Array<PostDto> = [];
   commentDtoList: Array<CommentDto> = [];
 
@@ -65,7 +63,8 @@ export class SocialAppComp implements OnInit {
   }
 
   searchPost() {
-    this.postDtoApiService.search(new PostSearchDto({ userId: 1 })).subscribe((e: Array<PostDto>) => {
+    this.postDtoApiService.search(new PostSearchDto({ userId: 2 })).
+    subscribe((e: Array<PostDto>) => {
       this.postDtoList = e;
     })
   }
