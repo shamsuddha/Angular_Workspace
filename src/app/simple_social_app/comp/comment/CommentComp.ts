@@ -5,18 +5,16 @@ import { CommentSearchDto } from "../../dto/request/CommentSearchDto";
 import { CommentDto } from "../../dto/CommentDto";
 import { FormControl, FormGroup } from "@angular/forms";
 import { UserDto } from "../../../../../express_server/dto/UserDto";
-import { CommentLikeDto } from 'express_server/dto/CommentLikeDto';
 import { PostDto } from '../../dto/PostDto';
-
-
+import { CommentLikeDto } from '../../dto/CommentLikeDto';
 
 @Component({
   selector: 'CommentComp',
   templateUrl: './CommentComp.html',
   styleUrls: ['./CommentComp.scss'],
 })
-export class CommentComp implements OnInit {
 
+export class CommentComp implements OnInit {
 
   @Input() postDto!: PostDto;
   commentDtoList!: Array<CommentDto>;
@@ -56,19 +54,17 @@ export class CommentComp implements OnInit {
 
   onCommentLikeClick(commentDto: CommentDto) {
 
-     console.log(commentDto);
-
     const commentLikeDto: CommentLikeDto = new CommentLikeDto()
     commentLikeDto.userDto = new UserDto({ id: this.currentUserId, name: "name " + this.currentUserId });
 
-    // commentLikeDto.postDto = commentDto.postDto;
-    // commentLikeDto.commentDto = commentDto;
+    console.log(commentLikeDto.userDto);
+
+     commentLikeDto.commentDto = commentDto;
 
     this.commentLikeDtoApiService.saveCommentLikeDto(commentLikeDto)
       .subscribe((e) => {
         console.log("Comment liked")
       });
-
 
   }
 

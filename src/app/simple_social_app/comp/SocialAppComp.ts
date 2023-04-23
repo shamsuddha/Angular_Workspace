@@ -48,6 +48,7 @@ export class SocialAppComp implements OnInit {
     console.log(this.postDtoFg.value);
     const postDto = new PostDto(this.postDtoFg.value)
     postDto.userDto = new UserDto({id: this.currentUserId, name: "name " + this.currentUserId});
+    postDto.createdDateTime = currentDateTime();
     this.postDtoApiService.savePostDto(postDto)
       .subscribe((e) => {
         this.searchPost();
