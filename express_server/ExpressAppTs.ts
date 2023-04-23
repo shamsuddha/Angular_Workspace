@@ -162,6 +162,30 @@ app.post('/commentLike/save', (req, res) => {
 });
 
 
+app.post('/commentLike/save', (req, res) => {  
+
+
+  console.log("hello world");
+  const commentLikeDto: CommentLikeDto = new CommentLikeDto(req.body);
+  commentLikeTable.find({}).sort({id: -1})
+    .exec((err, docs) => {
+      if (docs && docs.length > 0) {
+        commentLikeDto.id = docs[0]['id'] + 1;
+        commentLikeTable.insert(commentLikeDto, (err, newDoc) => {
+          res.json(newDoc);
+         
+        });
+      } else {
+        commentLikeDto.id = 1;
+        commentLikeTable.insert(commentLikeDto, (err, newDoc) => {
+          res.json(newDoc);
+         
+        });
+      }
+    });
+    
+});
+
 app.listen(port, () => {
   console.log(`⚡️[server]: Server is running at http://localhost:${port}`);
 });

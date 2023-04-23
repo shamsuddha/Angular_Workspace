@@ -7,6 +7,7 @@ import { FormControl, FormGroup } from "@angular/forms";
 import { UserDto } from "../../../../../express_server/dto/UserDto";
 import { PostDto } from '../../dto/PostDto';
 import { CommentLikeDto } from '../../dto/CommentLikeDto';
+import { currentDateTime } from 'src/util/DateTimeUtil';
 
 @Component({
   selector: 'CommentComp',
@@ -46,6 +47,7 @@ export class CommentComp implements OnInit {
     const commentDto: CommentDto = new CommentDto(this.commentDtoFg.value);
     commentDto.userDto = new UserDto({ id: 2, name: "name 2" });
     commentDto.postDto = this.postDto;
+    commentDto.createdDateTime = currentDateTime();
     this.commentDtoApiService.save(commentDto).subscribe(e => {
       this.search();
     });
@@ -57,10 +59,10 @@ export class CommentComp implements OnInit {
     const commentLikeDto: CommentLikeDto = new CommentLikeDto()
     commentLikeDto.userDto = new UserDto({ id: this.currentUserId, name: "name " + this.currentUserId });
 
-    console.log(commentLikeDto.userDto);
+    //console.log(commentLikeDto.userDto);
 
-     commentLikeDto.commentDto = commentDto;
-
+    commentLikeDto.commentDto = commentDto;
+    commentLikeDto.createdDateTime = currentDateTime();
     this.commentLikeDtoApiService.saveCommentLikeDto(commentLikeDto)
       .subscribe((e) => {
         console.log("Comment liked")

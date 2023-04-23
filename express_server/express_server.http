@@ -97,6 +97,22 @@ Content-Type: application/json
 
 }
 
+###
+POST http://localhost:7001/post/save
+Content-Type: application/json
+
+{
+  "id": 1003,
+  "userDto": {
+    "id": 3
+  },
+  "postDto": {
+    "id": 100
+  }
+
+}
+
+
 
 
 

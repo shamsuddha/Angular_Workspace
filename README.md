@@ -1,16 +1,14 @@
 # todo
-PostLikeDto te createdDateTime prop add korte hobe
-CommentLikeDto te createdDateTime prop add korte hobe
-user only ekber like dite parbe
+PostLikeDto te createdDateTime prop add korte hobe (done)
+CommentLikeDto te createdDateTime prop add korte hobe (done)
+user only ekber like dite parbe oi post e or oi comment e 
 
 post ta dialog e show korte hobe
 post er dialog e edit option add korte hobe
-post delete button kaj kore na
-
-
+post delete button kaj kore na 
+Comment Delete button kaj kore na.. 
 
 comment er under e comment
-
 
 Layout => Bootstrap 5+
 Component => 
