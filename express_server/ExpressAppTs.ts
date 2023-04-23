@@ -1,3 +1,4 @@
+import { PostDto } from './../src/app/simple_social_app/dto/PostDto';
 import { PostLikeDto } from './../src/app/simple_social_app/dto/PostLikeDto';
 import express, {Express} from 'express';
 import dotenv from 'dotenv';
@@ -7,12 +8,13 @@ import {PostSearchDto} from "./dto/request/PostSearchDto";
 import {UserSearchDto} from "./dto/request/UserSearchDto";
 import {CommentSearchDto} from "./dto/request/CommentSearchDto";
 import {CommentDto} from "./dto/CommentDto";
-import {PostDto} from './dto/PostDto';
+import { CommentLikeDto } from './dto/CommentLikeDto';
 
 const userTable = new Datastore({filename: 'db/user.db', autoload: true});
 const postTable = new Datastore({filename: 'db/post.db', autoload: true});
 const commentTable = new Datastore({filename: 'db/comment.db', autoload: true});
 const postLikeTable = new Datastore({filename: 'db/postLike.db', autoload: true});
+const commentLikeTable = new Datastore({filename: 'db/commentLike.db', autoload: true});
 
 dotenv.config();
 const app: Express = express();
@@ -105,8 +107,6 @@ app.post('/comment/search', (req, res) => {
 
 app.post('/postLike/save', (req, res) => {  
 
-  //console.log("hello world")
-
   const postLikeDto: PostLikeDto = new PostLikeDto(req.body);
   postLikeTable.find({}).sort({id: -1})
     .exec((err, docs) => {
@@ -114,18 +114,52 @@ app.post('/postLike/save', (req, res) => {
         postLikeDto.id = docs[0]['id'] + 1;
         postLikeTable.insert(postLikeDto, (err, newDoc) => {
           res.json(newDoc);
+         
         });
       } else {
         postLikeDto.id = 1;
         postLikeTable.insert(postLikeDto, (err, newDoc) => {
           res.json(newDoc);
+         
         });
       }
     });
 
-    postTable.find()
+    // Post table theke like count cont column e +1 dite hobe tar jonno
+    // req. body te jei post dto ashbe tar id er sathe post table er id match kore oita akta variable er moddhe nite hobe
+    // oi post er like count column er value +1 korte hobe.
+
+
+
+
+    
 });
 
+
+
+app.post('/commentLike/save', (req, res) => {  
+
+
+  console.log("hello world");
+  const commentLikeDto: CommentLikeDto = new CommentLikeDto(req.body);
+  commentLikeTable.find({}).sort({id: -1})
+    .exec((err, docs) => {
+      if (docs && docs.length > 0) {
+        commentLikeDto.id = docs[0]['id'] + 1;
+        commentLikeTable.insert(commentLikeDto, (err, newDoc) => {
+          res.json(newDoc);
+         
+        });
+      } else {
+        commentLikeDto.id = 1;
+        commentLikeTable.insert(commentLikeDto, (err, newDoc) => {
+          res.json(newDoc);
+         
+        });
+      }
+    });
+    
+});
 
 
 app.listen(port, () => {
