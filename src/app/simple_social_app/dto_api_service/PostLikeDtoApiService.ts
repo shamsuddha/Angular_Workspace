@@ -11,7 +11,7 @@ export class PostLikeDtoApiService {
 
   savePostLikeDto(postLikeDto: PostLikeDto): Observable<PostLikeDto> {
    
-    return this.httpClient.post<PostLikeDto>("http://localhost:7001/postLike", postLikeDto);
+    return this.httpClient.post<PostLikeDto>("http://localhost:7001/postLike/save", postLikeDto);
   }
 
 }

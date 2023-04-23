@@ -1,4 +1,1 @@
-{"id":1,"body":"post 1","likeCount":null,"postLikeDtoList":[],"userDto":{"id":1,"name":"name 1","postDtoList":[]},"commentDtoList":[],"createdDateTime":null,"_id":"g0rfmQUuzlGuTY4D"}
-{"id":2,"body":"post 2","likeCount":null,"postLikeDtoList":[],"userDto":{"id":1,"name":"name 1","postDtoList":[]},"commentDtoList":[],"createdDateTime":null,"_id":"Cp8BmGC7n4tyN0gz"}
-{"id":3,"body":"post 101","likeCount":null,"postLikeDtoList":[],"userDto":{"id":2,"name":"name 2","postDtoList":[]},"commentDtoList":[],"createdDateTime":null,"_id":"ixff10WO59uFlyCa"}
-{"id":4,"body":"post 102","likeCount":null,"postLikeDtoList":[],"userDto":{"id":2,"name":"name 2","postDtoList":[]},"commentDtoList":[],"createdDateTime":null,"_id":"WJFlmHXUAqniJWVq"}
+{"id":1,"body":"asdf dsf sdfdsfdsfdsfsdf dsfdsfsd ","likeCount":null,"postLikeDtoList":[],"userDto":{"id":1,"name":"name 1","postDtoList":[]},"commentDtoList":[],"createdDateTime":null,"_id":"d2qbUVbThLgfG0pg"}

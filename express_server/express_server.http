@@ -72,8 +72,6 @@ Content-Type: application/json
 
 {
   "id": 1003,
-  "body": "comment 1003",
-  "likeCount": 0,
   "userDto": {
     "id": 3
   },
