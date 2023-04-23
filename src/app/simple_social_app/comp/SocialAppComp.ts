@@ -11,6 +11,7 @@ import {CommentDto} from '../dto/CommentDto';
 import {PostLikeDto} from '../dto/PostLikeDto';
 import {PostSearchDto} from "../dto/request/PostSearchDto";
 import {ActivatedRoute} from "@angular/router";
+import {currentDateTime} from "../../../util/DateTimeUtil";
 
 @Component({
   selector: 'SocialAppComp',
@@ -49,6 +50,7 @@ export class SocialAppComp implements OnInit {
     const postDto = new PostDto(this.postDtoFg.value)
     postDto.userDto = new UserDto({id: this.currentUserId, name: "name " + this.currentUserId});
     postDto.createdDateTime = currentDateTime();
+    console.log(postDto)
     this.postDtoApiService.savePostDto(postDto)
       .subscribe((e) => {
         this.searchPost();

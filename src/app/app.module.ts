@@ -20,6 +20,10 @@ import {RxjsExample2Comp} from "./rxjs_example/RxjsExample2Comp";
 import {SubjectExampleComp} from "./rxjs_example/SubjectExampleComp";
 import {SocialAppComp} from './simple_social_app/comp/SocialAppComp';
 import {CommentComp} from "./simple_social_app/comp/comment/CommentComp";
+import {MaterialPractiseComp} from "./meterial_practise/MaterialPractiseComp";
+import {MatFormFieldModule} from "@angular/material/form-field";
+import {MatInputModule} from "@angular/material/input";
+import {BrowserAnimationsModule, NoopAnimationsModule} from "@angular/platform-browser/animations";
 
 @NgModule({
   declarations: [
@@ -30,7 +34,8 @@ import {CommentComp} from "./simple_social_app/comp/comment/CommentComp";
     UserComp,
     ParentComp,
     SocialAppComp,
-    CommentComp
+    CommentComp,
+    MaterialPractiseComp
   ],
   imports: [
     CommonModule,
@@ -47,6 +52,9 @@ import {CommentComp} from "./simple_social_app/comp/comment/CommentComp";
     AgGridModule,
     RxjsExample2Comp,
     SubjectExampleComp,
+    BrowserAnimationsModule,
+    MatFormFieldModule,
+    MatInputModule
   ],
   providers: [],
   bootstrap: [AppComponent]
