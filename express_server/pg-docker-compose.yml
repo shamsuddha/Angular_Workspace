@@ -1,0 +1,30 @@
+version: '3.9'
+
+services:
+
+  db-dev-1:
+    image: postgres:14.5
+    container_name: db-dev-1
+    command: postgres -c 'max_connections=500'
+    profiles:
+      - "dev"
+    ports:
+      - "9091:5432"
+    volumes:
+      - "./db-data:/var/lib/postgresql/data"
+    environment:
+      - POSTGRES_PASSWORD=123456
+      - POSTGRES_USER=user1
+      - POSTGRES_DB=db1
+      - TZ=GMT+6
+      - PGTZ=GMT+6
+
+
+#  nginx-dev-1:
+#    image: nginx:1.21.6-alpine
+#    ports:
+#      - "9040:80"
+
+
+#sudo docker compose -f pg-docker-compose.yml  --profile dev down ;
+#sudo docker compose -f pg-docker-compose.yml  --profile dev up -d

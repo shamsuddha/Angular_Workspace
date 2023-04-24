@@ -16,11 +16,53 @@ const commentTable = new Datastore({filename: 'db/comment.db', autoload: true});
 const postLikeTable = new Datastore({filename: 'db/postLike.db', autoload: true});
 const commentLikeTable = new Datastore({filename: 'db/commentLike.db', autoload: true});
 
+
+import { Pool } from 'pg';
+
+const pool = new Pool ({
+  max: 20,
+  //connectionString: 'postgres://username:password@localhost:port/dbname',
+  connectionString: 'postgres://user1:123456@localhost:9091/db1',
+  idleTimeoutMillis: 30000
+});
+
 dotenv.config();
 const app: Express = express();
 const port = process.env.PORT;
 app.use(express.json());
 app.use(cors());
+
+app.post('/test', async (req, res) => {
+
+  try {
+    const client = await pool.connect();
+    const sql = "SELECT * FROM test";
+    const {rows} = await client.query(sql);
+    const todos = rows;
+    console.log(todos)
+    client.release();
+    res.json(todos)
+  } catch (error) {
+    res.status(400).send(error);
+  }
+});
+
+
+app.post('/test2', async (req, res) => {
+
+  try {
+    const client = await pool.connect();
+    const sql = "insert into test values ('101',1010,'2022-12-28 04:08:19.124944','2022-12-28',1100.50,true)";
+    const {rows} = await client.query(sql);
+    const todos = rows;
+    console.log(todos)
+    client.release();
+    res.json(todos)
+  } catch (error) {
+    res.status(400).send(error);
+  }
+});
+
 
 app.post('/user/save', (req, res) => {
   userTable.insert(req.body, (err, newDoc) => {
@@ -105,7 +147,7 @@ app.post('/comment/search', (req, res) => {
   });
 })
 
-app.post('/postLike/save', (req, res) => {  
+app.post('/postLike/save', (req, res) => {
 
   const postLikeDto: PostLikeDto = new PostLikeDto(req.body);
   postLikeTable.find({}).sort({id: -1})
@@ -114,13 +156,13 @@ app.post('/postLike/save', (req, res) => {
         postLikeDto.id = docs[0]['id'] + 1;
         postLikeTable.insert(postLikeDto, (err, newDoc) => {
           res.json(newDoc);
-         
+
         });
       } else {
         postLikeDto.id = 1;
         postLikeTable.insert(postLikeDto, (err, newDoc) => {
           res.json(newDoc);
-         
+
         });
       }
     });
@@ -132,12 +174,12 @@ app.post('/postLike/save', (req, res) => {
 
 
 
-    
+
 });
 
 
 
-app.post('/commentLike/save', (req, res) => {  
+app.post('/commentLike/save', (req, res) => {
 
 
   console.log("hello world");
@@ -148,21 +190,21 @@ app.post('/commentLike/save', (req, res) => {
         commentLikeDto.id = docs[0]['id'] + 1;
         commentLikeTable.insert(commentLikeDto, (err, newDoc) => {
           res.json(newDoc);
-         
+
         });
       } else {
         commentLikeDto.id = 1;
         commentLikeTable.insert(commentLikeDto, (err, newDoc) => {
           res.json(newDoc);
-         
+
         });
       }
     });
-    
+
 });
 
 
-app.post('/commentLike/save', (req, res) => {  
+app.post('/commentLike/save', (req, res) => {
 
 
   console.log("hello world");
@@ -173,17 +215,17 @@ app.post('/commentLike/save', (req, res) => {
         commentLikeDto.id = docs[0]['id'] + 1;
         commentLikeTable.insert(commentLikeDto, (err, newDoc) => {
           res.json(newDoc);
-         
+
         });
       } else {
         commentLikeDto.id = 1;
         commentLikeTable.insert(commentLikeDto, (err, newDoc) => {
           res.json(newDoc);
-         
+
         });
       }
     });
-    
+
 });
 
 app.listen(port, () => {
