@@ -18,3 +18,8 @@ Component =>
   All other component => Angular material
   Table => Ag grid
 
+Social App Backend
+Social App Frontend
+
+-> Backend er moddhe express server er vitorer sob mal thakbe
+-> Frontend hobe akta angular app, simple social app

@@ -23,7 +23,6 @@ class BirdDto {
   name: string | null = null;
   age: number | null = null;
   aliveFlag: boolean | null = null;
-
   nestDto: NestDto | null = null;
   eggDtoList: Array<EggDto> = []
 
