@@ -9,10 +9,9 @@ import { HttpClient } from '@angular/common/http';
 @Component({
   selector: 'BookComp',
   templateUrl: './BookComp.html',
-  styleUrls: ['./BookComp.scss']
+  styleUrls: ['./BookComp.scss'],
 })
 export class BookComp {
-
   bookDtoFg = new FormGroup({
     id: new FormControl<number | null>(null),
     bookName: new FormControl<string | null>(null, Validators.required),
@@ -25,8 +24,12 @@ export class BookComp {
   frameworkComponents = { btnCellRenderer: CellComp };
   columnDefs: ColDef[] = [
     {
-      headerName: 'Action', editable: false, colId: 'action', width: 200,
-      cellRenderer: 'btnCellRenderer', resizable: true,
+      headerName: 'Action',
+      editable: false,
+      colId: 'action',
+      width: 200,
+      cellRenderer: 'btnCellRenderer',
+      resizable: true,
       cellRendererParams: {
         updateFlag: true,
         deleteFlag: true,
@@ -39,32 +42,73 @@ export class BookComp {
         },
         view: (param: any) => {
           this.viewBook(param);
-        }
+        },
       },
-      pinned: 'left'
+      pinned: 'left',
     },
-    { headerName: 'Id', resizable: true, field: 'id', editable: false, colId: 'id', width: 100, filter: true },
-    { headerName: 'Book Name', resizable: true, field: 'bookName', editable: false, colId: 'bookName', width: 100, filter: true },
-    { headerName: 'Author Name', resizable: true, field: 'authorName', editable: false, colId: 'authorName', width: 100, filter: true },
-    { headerName: 'Publisher Name', resizable: true, field: 'publisherName', editable: false, colId: 'publisherName', width: 100, filter: true },
-    { headerName: 'Published Year', resizable: true, field: 'publishedYear', editable: false, colId: 'publishedYear', width: 100, filter: true },
+    {
+      headerName: 'Id',
+      resizable: true,
+      field: 'id',
+      editable: false,
+      colId: 'id',
+      width: 100,
+      filter: true,
+    },
+    {
+      headerName: 'Book Name',
+      resizable: true,
+      field: 'bookName',
+      editable: false,
+      colId: 'bookName',
+      width: 100,
+      filter: true,
+    },
+    {
+      headerName: 'Author Name',
+      resizable: true,
+      field: 'authorName',
+      editable: false,
+      colId: 'authorName',
+      width: 100,
+      filter: true,
+    },
+    {
+      headerName: 'Publisher Name',
+      resizable: true,
+      field: 'publisherName',
+      editable: false,
+      colId: 'publisherName',
+      width: 100,
+      filter: true,
+    },
+    {
+      headerName: 'Published Year',
+      resizable: true,
+      field: 'publishedYear',
+      editable: false,
+      colId: 'publishedYear',
+      width: 100,
+      filter: true,
+    },
   ];
 
-  constructor(private bookDtoService: BookDtoService, private http: HttpClient) { }
+  constructor(
+    private bookDtoService: BookDtoService,
+    private http: HttpClient
+  ) {}
 
   ngOnInit() {
     this.search();
   }
 
   private updateBook(param: any) {
-
     this.bookDtoFg.patchValue({
       id: param.data.id,
       bookName: param.data.bookName,
       authorName: param.data.authorName,
       publisherName: param.data.publisherName,
       publishedYear: param.data.publishedYear,
-     
     });
     //this.search();
     //console.log(param.data);
@@ -82,21 +126,22 @@ export class BookComp {
 
   save() {
     console.log(this.bookDtoFg.value);
-    this.bookDtoService.saveBook(new BookDto(this.bookDtoFg.value)).subscribe(e => e);
+    this.bookDtoService
+      .saveBook(new BookDto(this.bookDtoFg.value))
+      .subscribe((e) => e);
     this.search();
   }
 
   search() {
     this.bookDtoService.getBookList().subscribe((e: Array<BookDto>) => {
       this.bookDtoList = e;
-    })
+    });
   }
 
   reset() {
     this.bookDtoFg.reset();
   }
 
-  
   // view(bookDto: BookDto) {
   //   throw new Error('Method not implemented.');
   // }
@@ -107,7 +152,7 @@ export class BookComp {
   //     authorName: bookDto.authorName,
   //     publisherName: bookDto.publisherName,
   //     publishedYear: bookDto.publishedYear,
-     
+
   //   });
   //   //this.search();
   // }
@@ -117,10 +162,11 @@ export class BookComp {
   // }
 
   update() {
-    this.bookDtoService.updateBookDto(new BookDto(this.bookDtoFg.value)).subscribe(e => {
+    this.bookDtoService
+      .updateBookDto(new BookDto(this.bookDtoFg.value))
+      .subscribe((e) => {
         console.log(e);
         this.search();
-      })
+      });
   }
-
 }
