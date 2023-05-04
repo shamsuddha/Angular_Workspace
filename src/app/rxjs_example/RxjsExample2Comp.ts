@@ -114,14 +114,14 @@ export class RxjsExample2Comp {
   }
 
 
-  clicke(){
-    this.newApi()
-    .pipe(
-      filter((e:Array<any>) => e.length == 2),
-      map
-    )
-    .subscribe((e:Array<any>)=> console.log(e))
-  }
+  // clicke(){
+  //   this.newApi()
+  //   .pipe(
+  //     filter((e:Array<any>) => e.length == 2),
+  //     map
+  //   )
+  //   .subscribe((e:Array<any>)=> console.log(e))
+  // }
 
 
 

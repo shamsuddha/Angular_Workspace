@@ -1,13 +1,8 @@
-export class BookDto {
-
+export class BangladeshDto {
   id: number | null = null;
   bookName: string | null = null;
-  authorName: string | null = null;
-  publisherName: string | null = null;
-  publishedYear: number | null = null;
 
-constructor(o?: Partial<BookDto>){
-  Object.assign(this, o)
-}
-
+  constructor(o?: Partial<BangladeshDto>) {
+    Object.assign(this, o);
+  }
 }
