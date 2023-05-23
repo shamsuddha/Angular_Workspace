@@ -26,6 +26,8 @@ import {BrowserAnimationsModule, NoopAnimationsModule} from "@angular/platform-b
 import {MatSliderModule} from '@angular/material/slider';
 import {MatDialogModule} from '@angular/material/dialog';
 import { TypescriptPracticeComp } from './typescript_practice/TypescriptPracticeComp';
+import { MaterialPracticeComp } from './meterial_practise/MaterialPracticeComp';
+
 
 @NgModule({
   declarations: [
@@ -37,7 +39,9 @@ import { TypescriptPracticeComp } from './typescript_practice/TypescriptPractice
     ParentComp,
     SocialAppComp,
     CommentComp,
-    TypescriptPracticeComp
+    TypescriptPracticeComp,
+    MaterialPracticeComp
+    
   ],
   imports: [
     CommonModule,
