@@ -31,6 +31,8 @@ class BirdDto {
   }
 }
 
+
+
 // class CourseDto {
 //   courseName: string | null = null;
 //   courseCode: string | null = null;
