@@ -16,11 +16,53 @@ const commentTable = new Datastore({ filename: 'db/comment.db', autoload: true }
 const postLikeTable = new Datastore({ filename: 'db/postLike.db', autoload: true });
 const commentLikeTable = new Datastore({ filename: 'db/commentLike.db', autoload: true });
 
+
+import { Pool } from 'pg';
+
+const pool = new Pool ({
+  max: 20,
+  //connectionString: 'postgres://username:password@localhost:port/dbname',
+  connectionString: 'postgres://user1:123456@localhost:9091/db1',
+  idleTimeoutMillis: 30000
+});
+
 dotenv.config();
 const app: Express = express();
 const port = process.env.PORT;
 app.use(express.json());
 app.use(cors());
+
+app.post('/test', async (req, res) => {
+
+  try {
+    const client = await pool.connect();
+    const sql = "SELECT * FROM test";
+    const {rows} = await client.query(sql);
+    const todos = rows;
+    console.log(todos)
+    client.release();
+    res.json(todos)
+  } catch (error) {
+    res.status(400).send(error);
+  }
+});
+
+
+app.post('/test2', async (req, res) => {
+
+  try {
+    const client = await pool.connect();
+    const sql = "insert into test values ('101',1010,'2022-12-28 04:08:19.124944','2022-12-28',1100.50,true)";
+    const {rows} = await client.query(sql);
+    const todos = rows;
+    console.log(todos)
+    client.release();
+    res.json(todos)
+  } catch (error) {
+    res.status(400).send(error);
+  }
+});
+
 
 app.post('/user/save', (req, res) => {
   userTable.insert(req.body, (err, newDoc) => {
@@ -125,6 +167,7 @@ app.post('/postLike/save', (req, res) => {
       }
     });
 
+<<<<<<< HEAD
     
   // Post table theke like count cont column e +1 dite hobe tar jonno
   // req. body te jei post dto ashbe tar id er sathe post table er id match kore oita akta variable er moddhe nite hobe
@@ -133,6 +176,22 @@ app.post('/postLike/save', (req, res) => {
 });
 
 app.post('/commentLike/save', (req, res) => {
+=======
+    // Post table theke like count cont column e +1 dite hobe tar jonno
+    // req. body te jei post dto ashbe tar id er sathe post table er id match kore oita akta variable er moddhe nite hobe
+    // oi post er like count column er value +1 korte hobe.
+
+
+
+
+
+});
+
+
+
+app.post('/commentLike/save', (req, res) => {
+
+>>>>>>> eafac18e11a985e870a09815e41bbb04bd667d42
 
   console.log("hello world");
   const commentLikeDto: CommentLikeDto = new CommentLikeDto(req.body);
@@ -157,7 +216,13 @@ app.post('/commentLike/save', (req, res) => {
 
 
 app.post('/commentLike/save', (req, res) => {
+<<<<<<< HEAD
   //console.log("hello world");
+=======
+
+
+  console.log("hello world");
+>>>>>>> eafac18e11a985e870a09815e41bbb04bd667d42
   const commentLikeDto: CommentLikeDto = new CommentLikeDto(req.body);
   commentLikeTable.find({}).sort({ id: -1 })
     .exec((err, docs) => {
@@ -171,6 +236,10 @@ app.post('/commentLike/save', (req, res) => {
         commentLikeDto.id = 1;
         commentLikeTable.insert(commentLikeDto, (err, newDoc) => {
           res.json(newDoc);
+<<<<<<< HEAD
+=======
+
+>>>>>>> eafac18e11a985e870a09815e41bbb04bd667d42
         });
       }
     });

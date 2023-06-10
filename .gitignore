@@ -44,3 +44,4 @@ Thumbs.db
 /express_server/node_modules
 /express_server/dist
 /express_server/ExpressAppTs.js
+/express_server/db-data

@@ -1,5 +1,14 @@
 
 ###
+POST http://localhost:7001/test
+Content-Type: application/json
+
+###
+POST http://localhost:7001/test2
+Content-Type: application/json
+
+
+###
 POST http://localhost:7001/user/save
 Content-Type: application/json
 
