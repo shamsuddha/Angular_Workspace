@@ -27,6 +27,7 @@ import {MatSliderModule} from '@angular/material/slider';
 import {MatDialogModule} from '@angular/material/dialog';
 import { TypescriptPracticeComp } from './typescript_practice/TypescriptPracticeComp';
 import { MaterialPracticeComp } from './meterial_practise/MaterialPracticeComp';
+import { LionComp } from './lion/LionComp';
 
 
 @NgModule({
@@ -40,8 +41,8 @@ import { MaterialPracticeComp } from './meterial_practise/MaterialPracticeComp';
     SocialAppComp,
     CommentComp,
     TypescriptPracticeComp,
-    MaterialPracticeComp
-    
+    MaterialPracticeComp,
+    LionComp
   ],
   imports: [
     CommonModule,

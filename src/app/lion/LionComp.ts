@@ -1,14 +1,17 @@
 import { Component } from "@angular/core";
 import { FormGroup } from "@angular/forms";
 
-@Component({
+@Component ({
+
   selector: 'LionComp',
   templateUrl: './LionComp.html',
   styleUrls: ['./LionComp.scss'],
 })
-export class LionComp {
+export class LionComp{
 
- lionDtoFg = new FormGroup({
 
-  });
+  
+
+
+
 }
