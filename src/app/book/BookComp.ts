@@ -19,7 +19,9 @@ export class BookComp {
     publisherName: new FormControl<string | null>(null, Validators.required),
     publishedYear: new FormControl<number | null>(null, Validators.required),
   });
+
   bookDtoList: Array<BookDto> = [];
+  
   //for ag-grid
   frameworkComponents = { btnCellRenderer: CellComp };
   columnDefs: ColDef[] = [

@@ -1,5 +1,5 @@
 import { Component } from "@angular/core";
-import { FormGroup } from "@angular/forms";
+import { FormControl, FormGroup, Validators } from "@angular/forms";
 
 @Component ({
 
@@ -9,8 +9,13 @@ import { FormGroup } from "@angular/forms";
 })
 export class LionComp{
 
-
+lionDtoFg = new FormGroup({
+  id: new FormControl<number | null> (null),
+  lionName: new FormControl<string | null>(null, Validators.required),
+  lionAuthor: new FormControl<string | null> (null, Validators.required)
   
+})
+
 
 
 
