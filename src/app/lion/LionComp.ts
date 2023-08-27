@@ -11,6 +11,9 @@ import { LionDto } from "./LionDto";
   styleUrls: ['./LionComp.scss'],
 })
 export class LionComp{
+save() {
+throw new Error('Method not implemented.');
+}
 
 lionDtoFg = new FormGroup({
   id: new FormControl<number | null> (null),

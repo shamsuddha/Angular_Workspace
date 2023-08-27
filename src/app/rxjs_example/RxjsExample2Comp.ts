@@ -21,6 +21,7 @@ class StudentDto {
    
   `,
 })
+
 export class RxjsExample2Comp {
 
 
@@ -122,12 +123,6 @@ export class RxjsExample2Comp {
   //   )
   //   .subscribe((e:Array<any>)=> console.log(e))
   // }
-
-
-
-
-
-
 
 
 }
