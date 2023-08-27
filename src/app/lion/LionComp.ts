@@ -2,6 +2,7 @@ import { Component } from "@angular/core";
 import { FormControl, FormGroup, Validators } from "@angular/forms";
 import { BookDtoService } from "../book/BookDtoService";
 import { HttpClient } from "@angular/common/http";
+import { LionDto } from "./LionDto";
 
 @Component ({
 
@@ -31,22 +32,22 @@ constructor(private bookDtoService: BookDtoService,
 }
 
 ngOnInit(){
-  this.search();
+ // this.search();
 }
 
-save() {
-  console.log(this.lionDtoFgs.value);
-  this.bookDtoService
-    .saveBook(new LionDto(this.lionDtoFgs.value))
-    .subscribe((e) => e);
-  this.search();
-}
+// save() {
+//   console.log(this.lionDtoFgs.value);
+//   this.bookDtoService
+//     .saveBook(new LionDto(this.lionDtoFgs.value))
+//     .subscribe((e) => e);
+//   this.search();
+// }
 
-search() {
-  this.bookDtoService.getBookList().subscribe((e: Array<LionDto>) => {
-    this.bookDtoList = e;
-  });
-}
+// search() {
+//   this.bookDtoService.getBookList().subscribe((e: Array<LionDto>) => {
+//     this.bookDtoList = e;
+//   });
+// }
 
 
 }
