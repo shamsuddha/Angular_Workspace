@@ -21,7 +21,7 @@ export class BookComp {
   });
 
   bookDtoList: Array<BookDto> = [];
-  
+
   //for ag-grid
   frameworkComponents = { btnCellRenderer: CellComp };
   columnDefs: ColDef[] = [
@@ -115,7 +115,7 @@ export class BookComp {
     //this.search();
     //console.log(param.data);
   }
-
+  
   private deleteBook(param: any) {
     this.bookDtoService.deleteBookDto(param.data);
     this.search();

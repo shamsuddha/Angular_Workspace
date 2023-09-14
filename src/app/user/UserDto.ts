@@ -11,4 +11,10 @@ export class UserDto{
   constructor(o?: Partial<UserDto>){
     Object.assign(this, o);
   }
+
+
+
+
+
+
 }

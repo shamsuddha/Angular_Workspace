@@ -9,6 +9,7 @@ class NestDto {
   }
 }
 
+
 class EggDto {
   id: number | null = null;
   size: string | null = null;
@@ -62,6 +63,7 @@ class BirdDto {
     <button (click)="showSeniorBird()">senior bird</button>
   `,
 })
+
 export class CollectionManipulateComp implements OnInit {
 
   birdDtoList: Array<BirdDto> = [];

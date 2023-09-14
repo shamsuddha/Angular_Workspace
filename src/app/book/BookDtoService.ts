@@ -9,7 +9,7 @@ import { BookDto } from './BookDto';
 })
 
 export class BookDtoService {
- 
+
 
   constructor(private httpClient: HttpClient) { }
 
@@ -29,6 +29,4 @@ export class BookDtoService {
     this.httpClient.delete<BookDto>('http://localhost:3000/book/' + bookDto.id).subscribe();
     console.log("successfully Deleted...");
   }
-
-
 }
