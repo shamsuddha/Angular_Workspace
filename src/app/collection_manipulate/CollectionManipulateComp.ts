@@ -8,8 +8,6 @@ class NestDto {
     Object.assign(this, o);
   }
 }
-
-
 class EggDto {
   id: number | null = null;
   size: string | null = null;
@@ -67,9 +65,7 @@ class BirdDto {
 export class CollectionManipulateComp implements OnInit {
 
   birdDtoList: Array<BirdDto> = [];
-
   ngOnInit(): void {
-
     for (let i = 1; i <= 10; i++) {
       const birdDto: BirdDto = new BirdDto({id: i, name: "name " + i, age: 10 + i, aliveFlag: true});
       birdDto.nestDto = new NestDto({id: 10 * i + 1, location: "location " + (10 * i + 1)});
@@ -82,7 +78,6 @@ export class CollectionManipulateComp implements OnInit {
   load() {
     console.log(this.birdDtoList);
   }
-
 
   private getEggDtoList(birdDto: BirdDto): Array<EggDto> {
     let tempArr: Array<EggDto> = [];
@@ -104,6 +99,4 @@ export class CollectionManipulateComp implements OnInit {
       }
     }
   }
-
-
 }

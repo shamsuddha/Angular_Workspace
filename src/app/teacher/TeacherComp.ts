@@ -83,6 +83,21 @@ export class TeacherComp {
     })
   }
 
+
+  // update() {
+  //   this.teacherDtoService.updateTeacher(new TeacherDto(this.teacherDtoFg.value))
+  //     .subscribe(
+  //       response => {
+  //         console.log('Update successful:', response);
+  //         this.search();
+  //       },
+  //       error => {
+  //         console.error('Update failed:', error);
+  //         // Handle the error appropriately, e.g., show an error message to the user
+  //       }
+  //     );
+  // }
+
   ngOnInit()
   {
     this.search();
