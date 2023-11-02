@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { filter, map, Observable, tap } from 'rxjs';
+import { filter, map, Observable, of, tap } from 'rxjs';
 import { HttpClient } from '@angular/common/http';
 
 class StudentDto {
@@ -35,41 +35,52 @@ export class RxjsExampleComp {
     ).subscribe((e: StudentDto) => console.log(e));
   }
 
-  click2() {
-    const observable: Observable<Array<string>> = new Observable(
-      (subscriber) => {
-        subscriber.next(['aa', 'bb']);
-        setTimeout(() => {
-          subscriber.next(['ccc', 'dddd', 'gggg']);
-        }, 1000);
-        setTimeout(() => {
-          subscriber.next(['eee', 'f', 'fff', 'fffff']);
-        }, 2000);
-        setTimeout(() => {
-          subscriber.next(['gggg', 'hhhhh', 'h', 'hh', 'hhhhh', 'hhhhh']);
-        }, 3000);
-      }
-    );
+  // click2() {
+  //   const observable: Observable<Array<string>> = new Observable(
+  //     (subscriber) => {
+  //       subscriber.next(['aa', 'bb']);
+  //       setTimeout(() => {
+  //         subscriber.next(['ccc', 'dddd', 'gggg']);
+  //       }, 1000);
+  //       setTimeout(() => {
+  //         subscriber.next(['eee', 'f', 'fff', 'fffff']);
+  //       }, 2000);
+  //       setTimeout(() => {
+  //         subscriber.next(['gggg', 'hhhhh', 'h', 'hh', 'hhhhh', 'hhhhh']);
+  //       }, 3000);
+  //     }
+  //   );
 
-    //subscribing
-    observable
-      .pipe(
-        filter((e: Array<string>) => e.length != 4),
-        map((e: Array<string>) => {
-          e[0] = e[0].toUpperCase();
-          return e;
-        }),
-        tap((e: Array<string>) =>  console.log(e))
-      )
-      .subscribe((e: Array<string>) => {
-        console.log(e);
-      });
+click()
+{
+  const data = of(1, 'two', [3, 4], { key: 'value' });
 
-    /* observable.subscribe((e => {
-       console.log(e);
-     }));
-     observable.subscribe((e => {
-       console.log(e);
-      v xc}));*/
-  }
+  data.subscribe(value => console.log(value));
+  
+}
+
+
+
+
+  //   //subscribing
+  //   observable
+  //     .pipe(
+  //       filter((e: Array<string>) => e.length != 4),
+  //       map((e: Array<string>) => {
+  //         e[0] = e[0].toUpperCase();
+  //         return e;
+  //       }),
+  //       tap((e: Array<string>) =>  console.log(e))
+  //     )
+  //     .subscribe((e: Array<string>) => {
+  //       console.log(e);
+  //     });
+
+  //   /* observable.subscribe((e => {
+  //      console.log(e);
+  //    }));
+  //    observable.subscribe((e => {
+  //      console.log(e);
+  //     v xc}));*/
+  // }
 }
