@@ -108,7 +108,7 @@ export class RxjsExample2Comp {
           });
           return e;
         }),
-        tap((e:Array<StudentDto>)=> console.log(e))
+        tap((e: Array<StudentDto>) => console.log(e))
       )
       .subscribe((e: Array<StudentDto>) => console.log(e));
   }
@@ -165,28 +165,28 @@ export class RxjsExample2Comp {
   }
 
   click5() {
-     this.newApi2().pipe(
-        filter((arrayStudnetDto: Array<StudentDto>) => {
-          if (arrayStudnetDto.find((singleStudentDto: StudentDto) => singleStudentDto.id < 50)) 
-          {
-            return true;
-          }
-          else
-          {
-            return false;
-          }
-        }),
-        map((arrayStudnetDto: Array<StudentDto>)=>{
-          const result = arrayStudnetDto.map((singleStudentDto:StudentDto)=>{
-
-            singleStudentDto.id = singleStudentDto.id *10;
-            return singleStudentDto;
-          })
-          return result;
+    this.rajitApi()
+      .pipe(
+       filter((e:Array<StudentDto>)=>{
+        if(e.find((t:StudentDto)=> t.id > 4))
+        {
+          return false;
+        }
+        else
+        {
+          return true;
+        }
+       }
+       ),
+        map((e: Array<StudentDto>) => {
+          e.map((singleT:StudentDto) => {
+          singleT.name = singleT.name.toUpperCase();
+            return singleT;
+          });
+          return e;
         })
-       // tap((arrayStudnetDto: Array<StudentDto>)=>console.log(arrayStudnetDto))
       )
-      .subscribe((arrayStudnetDto: Array<StudentDto>)=>console.log(arrayStudnetDto));
+      .subscribe((e) => console.log(e));
   }
 
   click6() {}
