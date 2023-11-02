@@ -168,7 +168,7 @@ export class RxjsExample2Comp {
     this.rajitApi()
       .pipe(
        filter((e:Array<StudentDto>)=>{
-        if(e.find((t:StudentDto)=> t.id > 4))
+        if(e.find((t:StudentDto)=> t.id === 4))
         {
           return false;
         }
