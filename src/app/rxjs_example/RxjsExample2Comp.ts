@@ -168,7 +168,7 @@ export class RxjsExample2Comp {
     this.rajitApi()
       .pipe(
         filter((e: Array<StudentDto>) => {
-          if (e.find((t: StudentDto) => t.id === 4)) {
+          if (e.find((singleT: StudentDto) => singleT.id === 4)) {
             return false;
           } else {
             return true;
@@ -180,7 +180,8 @@ export class RxjsExample2Comp {
             return singleT;
           });
           return e;
-        })
+        }),
+        tap((e)=> console.log(e))
       )
       .subscribe((e) => console.log(e));
   }
