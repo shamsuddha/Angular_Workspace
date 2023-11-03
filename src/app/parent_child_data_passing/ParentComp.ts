@@ -8,5 +8,11 @@ import { Component } from "@angular/core";
 
 export class ParentComp
 {
+  parentData = "Data from parent";
+  childMessage = "";
+
+  onChildEvent(message: string) {
+    this.childMessage = message;
+  }
 
 }
