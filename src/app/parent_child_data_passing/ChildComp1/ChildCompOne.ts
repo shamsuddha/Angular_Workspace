@@ -1,13 +1,15 @@
-import { Component, Input } from "@angular/core";
+import { Component, EventEmitter, Input, Output } from '@angular/core';
 
 @Component({
   selector: 'ChildCompOne',
-  templateUrl:'./ChildCompOne.html'
+  templateUrl: './ChildCompOne.html',
 })
-
-export class ChildCompOne{
+export class ChildCompOne {
+  
   @Input() childData: string;
   @Output() childEvent = new EventEmitter<string>();
 
-
+  emitEvent() {
+    this.childEvent.emit('Event from child');
+  }
 }

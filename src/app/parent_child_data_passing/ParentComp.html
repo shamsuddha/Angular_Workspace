@@ -1,2 +1,6 @@
-<h1>I am parent</h1>
-
+<h2>Parent Component</h2>
+<app-child
+  [childData]="parentData"
+  (childEvent)="onChildEvent($event)"
+></app-child>
+<p>Received data from child: {{ childMessage }}</p>
