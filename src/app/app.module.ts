@@ -25,7 +25,6 @@ import {MatInputModule} from "@angular/material/input";
 import {BrowserAnimationsModule, NoopAnimationsModule} from "@angular/platform-browser/animations";
 import {MatSliderModule} from '@angular/material/slider';
 import {MatDialogModule} from '@angular/material/dialog';
-import { TypescriptPracticeComp } from './typescript_practice/TypescriptPracticeComp';
 import { MaterialPracticeComp } from './meterial_practise/MaterialPracticeComp';
 import { LionComp } from './lion/LionComp';
 
@@ -40,7 +39,6 @@ import { LionComp } from './lion/LionComp';
     ParentComp,
     SocialAppComp,
     CommentComp,
-    TypescriptPracticeComp,
     MaterialPracticeComp,
     LionComp
   ],

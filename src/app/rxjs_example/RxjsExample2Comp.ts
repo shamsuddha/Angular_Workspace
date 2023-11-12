@@ -165,25 +165,16 @@ export class RxjsExample2Comp {
   }
 
   click5() {
-    this.rajitApi()
-      .pipe(
-        filter((e: Array<StudentDto>) => {
-          if (e.find((singleT: StudentDto) => singleT.id === 4)) {
-            return false;
-          } else {
-            return true;
-          }
-        }),
-        map((e: Array<StudentDto>) => {
-          e.map((singleT: StudentDto) => {
-            singleT.name = singleT.name.toUpperCase();
-            return singleT;
-          });
-          return e;
-        }),
-        tap((e)=> console.log(e))
-      )
-      .subscribe((e) => console.log(e));
+
+    this.rajitApi().pipe(
+      filter((studentDtoList)=>{
+        
+      })
+    )
+
+
+    
+    
   }
 
   click6() {}

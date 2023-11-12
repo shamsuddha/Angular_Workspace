@@ -13,75 +13,43 @@
       <form [formGroup]="bookDtoFg">
         <div class="form-group">
           <label for="id">id</label>
-          <input
-            formControlName="id"
-            type="text"
-            class="form-control"
-            placeholder="Enter book id"
-            id="id"
-          />
+          <input formControlName="id" type="text" class="form-control" placeholder="Enter book id" id="id" />
         </div>
         <div class="form-group">
           <label for="bookName">Book Name</label>
-          <input
-            formControlName="bookName"
-            type="text"
-            class="form-control"
-            placeholder="Enter book name"
-            id="bookName"
-          />
-          <div
-            *ngIf="bookDtoFg.controls['bookName'].touched && bookDtoFg.controls['bookName'].errors?.['required']"
-            class="alert alert-danger"
-          >
+          <input formControlName="bookName" type="text" class="form-control" placeholder="Enter book name"
+            id="bookName" />
+          <div *ngIf="bookDtoFg.controls['bookName'].touched && bookDtoFg.controls['bookName'].errors?.['required']"
+            class="alert alert-danger">
             book name is required!!!
           </div>
         </div>
         <div class="form-group">
           <label for="bookName">Author Name</label>
-          <input
-            formControlName="authorName"
-            type="text"
-            class="form-control"
-            placeholder="Enter author name"
-            id="authorName"
-          />
-          <div
-            *ngIf="bookDtoFg.controls['authorName'].touched && bookDtoFg.controls['authorName'].errors?.['required']"
-            class="alert alert-danger"
-          >
+          <input formControlName="authorName" type="text" class="form-control" placeholder="Enter author name"
+            id="authorName" />
+          <div *ngIf="bookDtoFg.controls['authorName'].touched && bookDtoFg.controls['authorName'].errors?.['required']"
+            class="alert alert-danger">
             author name is required!!!
           </div>
         </div>
         <div class="form-group">
           <label for="bookName">Publisher Name</label>
-          <input
-            formControlName="publisherName"
-            type="text"
-            class="form-control"
-            placeholder="Enter publisher name"
-            id="publisherName"
-          />
+          <input formControlName="publisherName" type="text" class="form-control" placeholder="Enter publisher name"
+            id="publisherName" />
           <div
             *ngIf="bookDtoFg.controls['publisherName'].touched && bookDtoFg.controls['publisherName'].errors?.['required']"
-            class="alert alert-danger"
-          >
+            class="alert alert-danger">
             publisher name is required!!!
           </div>
         </div>
         <div class="form-group">
           <label for="bookName">Published Year</label>
-          <input
-            formControlName="publishedYear"
-            type="date"
-            class="form-control"
-            placeholder="Enter published Year"
-            id="publishedYear"
-          />
+          <input formControlName="publishedYear" type="date" class="form-control" placeholder="Enter published Year"
+            id="publishedYear" />
           <div
             *ngIf="bookDtoFg.controls['publishedYear'].touched && bookDtoFg.controls['publishedYear'].errors?.['required']"
-            class="alert alert-danger"
-          >
+            class="alert alert-danger">
             published year is required!!!
           </div>
         </div>
@@ -124,15 +92,8 @@
         </tbody>
       </table> -->
 
-      <ag-grid-angular
-        #agGrid
-        style="width: 100%; height: 545px"
-        class="ag-theme-material"
-        animateRows
-        [frameworkComponents]="frameworkComponents"
-        [rowData]="bookDtoList"
-        [columnDefs]="columnDefs"
-      >
+      <ag-grid-angular #agGrid style="width: 100%; height: 545px" class="ag-theme-material" animateRows
+        [frameworkComponents]="frameworkComponents" [rowData]="bookDtoList" [columnDefs]="columnDefs">
       </ag-grid-angular>
     </div>
   </div>
