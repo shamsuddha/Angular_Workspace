@@ -1,17 +1,11 @@
 <h1>Crud Practice One</h1>
-
 <button (click)="click1()">inc 0</button> {{parentVal}}
-
 <hr />
-
 <Child1Comp [childVal1]="parentVal"></Child1Comp>
 <hr />
-
 <Child2Comp [childVal2]="parentVal" (child2Emitter)="fn1($event)"></Child2Comp>
 <hr />
-
 <Child3Comp (child4Emmiter)="fn2($event)"></Child3Comp>
-
 <div class="container">
   <div class="row">
     <div class="col-4">

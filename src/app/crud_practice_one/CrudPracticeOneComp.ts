@@ -158,7 +158,7 @@ export class CrudPracticeOneComp {
         this.search();
       })
   }
-
+  
   onSelectDivision($event: { id: number, name: string }) {
     this.crudPracticeOneFg.patchValue({
       divisionName: $event.name
