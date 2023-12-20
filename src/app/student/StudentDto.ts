@@ -6,6 +6,4 @@ export class StudentDto {
   constructor(o?:Partial<StudentDto>){
     Object.assign(this,o);
     }
-
-  
 }

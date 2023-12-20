@@ -13,5 +13,4 @@ export class PostLikeDtoApiService {
    
     return this.httpClient.post<PostLikeDto>("http://localhost:7001/postLike/save", postLikeDto);
   }
-
 }

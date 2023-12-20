@@ -7,10 +7,5 @@ import { MAT_DIALOG_DATA, MatDialog, MatDialogRef } from '@angular/material/dial
   templateUrl: './MaterialPracticeComp.html',
   styleUrls: ['./MaterialPracticeComp.scss'],
 })
-
-
 export class MaterialPracticeComp {
-
-  
-
 }
