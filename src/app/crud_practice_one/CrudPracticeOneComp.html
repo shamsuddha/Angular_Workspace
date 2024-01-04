@@ -1,0 +1,115 @@
+<h1>Crud Practice One</h1>
+<button (click)="click1()">inc 0</button> {{parentVal}}
+<hr />
+<Child1Comp [childVal1]="parentVal"></Child1Comp>
+<hr />
+<Child2Comp [childVal2]="parentVal" (child2Emitter)="fn1($event)"></Child2Comp>
+<hr />
+<Child3Comp (child4Emmiter)="fn2($event)"></Child3Comp>
+<div class="container">
+  <div class="row">
+    <div class="col-4">
+      <h4>Crud Values</h4>
+      {{crudPracticeOneFg.value | json}}
+      <hr />
+      {{crudPracticeOneFg.controls['name'].errors | json}}
+      <hr />
+      <form [formGroup]="crudPracticeOneFg" class="form-horizontal">
+        <div class="form-group">
+          <label class="control-label col-sm-2" for="id">id: </label>
+          <div class="col-sm-10">
+            <input class="form-control" type="text" formControlName="id">
+          </div>
+        </div>
+        <div class="form-group">
+          <label class="control-label col-sm-2" for="name"> name: </label>
+          <div class="col-sm-10">
+            <input class="form-control" type="text" formControlName="name">
+          </div>
+        </div>
+        <div class="form-group">
+          <label class="control-label col-sm-2" for="name"> address: </label>
+          <div class="col-sm-10">
+            <input class="form-control" type="text" formControlName="address">
+          </div>
+        </div>
+        <div class="form-group">
+          <label class="control-label col-sm-2" for="id">Select Division: </label>
+          <div class="col-sm-10">
+            <ng-select [items]="divisionList" class="form-control" bindLabel="name" bindValue="id"
+              formControlName="divisionId" (change)="onSelectDivision($event)">
+            </ng-select>
+          </div>
+        </div>
+        <div class="form-group">
+          <label class="control-label col-sm-2" for="id">Select District: </label>
+          <div class="col-sm-10">
+            <ng-select [items]="districtList" class="form-control" bindLabel="name" bindValue="id"
+              formControlName="districtId" (change)="onSelectDistrict($event)">
+            </ng-select>
+          </div>
+        </div>
+        <div class="form-group">
+          <label class="control-label col-sm-2" for="id">Select Thana: </label>
+          <div class="col-sm-10">
+            <ng-select [items]="thanaList" class="form-control" [multiple]="true" bindLabel="name" bindValue="id"
+              formControlName="thanaId" (change)="onSelectThana($event)">
+            </ng-select>
+          </div>
+        </div>
+        <div class="form-group">
+          <label class="control-label col-sm-2" for="id">Gender: </label>
+          <div class="col-sm-10">
+            <label>
+              <input type="radio" value="Male" formControlName="gender">
+              <span>male</span>
+            </label>
+            <label>
+              <input type="radio" value="Female" formControlName="gender">
+              <span>female</span>
+            </label>
+          </div>
+        </div>
+        <button class="btn btn-primary" type="button" (click)="save()">Submit</button>
+        <button class="btn btn-primary" type="button" (click)="update()">update</button>
+        <button class="btn btn-primary" type="button" (click)="reset()">reset</button>
+      </form>
+      <hr />
+    </div>
+    <div class="col-8">
+      {{horseDtoList | json}}
+      <button class="btn btn-warning" (click)="search()">search</button>
+      <!-- <table class="table table-striped">
+        <thead>
+          <tr>
+            <th>id</th>
+            <th>name</th>
+            <th>address</th>
+            <th>Division</th>
+            <th>District</th>
+            <th>Thana</th>
+            <th>Gender</th>
+            <th>action</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let crudPracticeOneDto of crudPracticeOneDtoList">
+            <td>{{crudPracticeOneDto.id}}</td>
+            <td>{{crudPracticeOneDto.name}}</td>
+            <td>{{crudPracticeOneDto.address}}</td>
+            <td>{{crudPracticeOneDto.divisionName}}</td>
+            <td>{{crudPracticeOneDto.districtName}}</td>
+            <td>{{crudPracticeOneDto.thanaName}}</td>
+            <td>{{crudPracticeOneDto.gender}}</td>
+            <td>
+              <button class="btn btn-info" (click)="onUpdateClick(crudPracticeOneDto)">Edit</button>
+              <button class="btn btn-danger" (click)="delete(crudPracticeOneDto)">Delete</button>
+            </td>
+          </tr>
+        </tbody>
+      </table> -->
+      <ag-grid-angular #agGrid style="width: 100%; height: 545px;" class="ag-theme-material" animateRows
+        [frameworkComponents]="frameworkComponents" [rowData]="horseDtoList" [columnDefs]="columnDefs">
+      </ag-grid-angular>
+    </div>
+  </div>

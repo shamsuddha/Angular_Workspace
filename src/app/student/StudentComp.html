@@ -1,0 +1,53 @@
+{{studentDtoFg.value | json}}
+<hr />
+
+{{studentDtoFg.controls['name'].errors | json}}
+<hr />
+
+<form [formGroup]="studentDtoFg">
+  <label for="id">id: </label>
+  <input type="text" formControlName="id">
+  <label for="firstName"> name: </label>
+  <input type="text" formControlName="name">
+  <div *ngIf="studentDtoFg.controls['name'].touched 
+&& studentDtoFg.controls['name'].errors?.['required']" class="alert alert-danger">
+    Name is required
+  </div>
+  <div *ngIf="studentDtoFg.controls['name'].touched 
+&& studentDtoFg.controls['name'].errors?.['maxlength']" class="alert alert-danger">
+    Max Length 3
+  </div>
+
+  <button type="button" (click)="save()">Submit</button>
+  <button type="button" (click)="reset()">Reset</button>
+  <button type="button" (click)="loadData()">loadData</button>
+  <button type="button" (click)="log()">log</button>
+  <button type="button" (click)="markAllTouched()">markAllTouched</button>
+  <button type="button" (click)="loadAllData()">loadAllData</button>
+  <button type="button" (click)="update(studentDtoFg.value)">Update Data</button>
+</form>
+
+<hr />
+{{studentDtoList | json}}
+
+<table class="table table-striped">
+  <thead>
+    <tr>
+      <th>id</th>
+      <th>name</th>
+      <th>action</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr *ngFor="let student of studentDtoList">
+      <td>{{student.id}}</td>
+      <td>{{student.name}}</td>
+      <td>
+        <button (click)="edit(student)">Edit</button>
+        <button (click)="delete(student)">Delete</button>
+      </td>
+    </tr>
+
+
+  </tbody>
+</table>
