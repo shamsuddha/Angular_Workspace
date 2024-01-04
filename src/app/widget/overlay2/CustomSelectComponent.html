@@ -1,0 +1,27 @@
+<div class="select-wrapper" [class.required]="required">
+  <label *ngIf="label.length > 0" [class.error]="error" class="label-text">{{
+    label
+    }}</label>
+  <div
+    #select
+    role="listbox"
+    tabindex="{{ this.disabled ? -1 : 0 }}"
+    [ngClass]="mainSelectClasses()"
+    (click)="showDropdown()"
+    (keydown)="onKeyDown($event)"
+    (blur)="onTouched()"
+    [attr.id]="inputId"
+    [attr.aria-label]="ariaLabel || null"
+    [attr.aria-labelledby]="ariaLabelledby || null"
+    [attr.aria-multiselectable]="false"
+    [innerHTML]="displayText"
+  ></div>
+  <span class="dropdown-arrow" (click)="onDropMenuIconClick($event)"></span>
+  <ng-template cdk-portal #overlayTemplate="cdkPortal" class="dropdown">
+    <div class="custom-dropdown-menu">
+      <div class="dropdown-options-container" (keydown)="onKeyDown($event)">
+        <ng-content></ng-content>
+      </div>
+    </div>
+  </ng-template>
+</div>

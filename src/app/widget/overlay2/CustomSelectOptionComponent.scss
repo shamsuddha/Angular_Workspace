@@ -1,0 +1,52 @@
+@use './base';
+
+:host {
+  display: block;
+  padding: 0 14px;
+  height: 40px;
+  line-height: 40px;
+  background-color: #fff;
+  white-space: nowrap;
+  overflow: clip;
+  text-overflow: ellipsis;
+  cursor: pointer;
+  font-family: base.$font-family;
+  font-size: 16px;
+  user-select: none;
+
+  &.selected {
+    color: base.$main-color;
+    font-weight: bold;
+
+    .multiple {
+      color: black;
+      font-weight: 400;
+    }
+  }
+
+  &:hover {
+    outline: none;
+    background-color: base.$light-gray;
+  }
+
+  &.active,
+  &:focus {
+    outline: none;
+    background-color: base.$light-gray;
+  }
+
+  &.disabled {
+    color: base.$main-gray;
+    cursor: auto;
+
+    &:hover,
+    &:focus {
+      background-color: white;
+    }
+  }
+
+  &.hidden {
+    display: none !important;
+    height: 0;
+  }
+}
