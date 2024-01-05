@@ -24,6 +24,7 @@
     "@rxweb/reactive-form-validators": "^13.0.1",
     "ag-grid-angular": "^30.2.1",
     "ag-grid-community": "^30.2.1",
+    "bootstrap": "^5.3.2",
     "rxjs": "~7.8.0",
     "tslib": "^2.3.0",
     "zone.js": "~0.14.2"
