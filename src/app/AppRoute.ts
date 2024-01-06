@@ -9,7 +9,7 @@ export const routeList: Route[] = [
   {path: 'crud', loadComponent: () => import('./module/crud/CrudComp').then(m => m.CrudComp)},
   {path: 'overlay2', loadComponent: () => import('./widget/overlay2/Overlay2Comp').then(m => m.Overlay2Comp)},
   {path: 'overlay3', loadComponent: () => import('./widget/overlay3/Overlay3Comp').then(m => m.Overlay3Comp)},
-  {path: 'bootstrap-practice', loadComponent: () => import('./module/').then(m => m.Overlay3Comp)},
+  {path: 'bootstrap-practice', loadComponent: () => import('./module/bootstrap_practice/BootstrapPracticeComp').then(m => m.BootstrapPracticeComp)},
 ];
 
 
