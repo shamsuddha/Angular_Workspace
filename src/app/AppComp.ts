@@ -13,7 +13,10 @@ import {RouterOutlet} from '@angular/router';
     <a href="/dashboard">Dashboard</a> |
     <a href="/forest">forest</a> |
     <a href="/river">river</a> |
-    <a href="/crud">crud</a>
+    <a href="/form-one-column">form one</a> |
+    <a href="/form-two-column">form two</a> |
+    <a href="/form-three-column">form three</a> |
+   
     <hr/>
     <router-outlet></router-outlet>`,
   providers: [
